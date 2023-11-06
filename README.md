@@ -4,8 +4,8 @@ Git Repository for JY68 Wearable EEG Sensor Capstone Project
 Use this repository for:
 1. Diagrams
 2. PCB files
-    i. Schematics
-    ii. Layouts
+    1. Schematics
+    2. Layouts
 3. Application codebase
 4. 3D CAD files
 ## Description
