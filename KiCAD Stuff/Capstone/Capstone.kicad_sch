@@ -1398,8 +1398,8 @@
     (effects (font (size 1.27 1.27)) (justify left top))
     (uuid 06ccb765-05ea-4560-95d7-3d8803e07444)
   )
-  (text_box "Note: I flipped the input connector"
-    (at 40.64 64.77 0) (size 11.43 10.16)
+  (text_box "Note: I flipped the input connector. Input connector to be changed to a single 1x2 screw terminal"
+    (at 29.21 63.5 0) (size 17.78 17.78)
     (stroke (width 0) (type default))
     (fill (type color) (color 255 215 209 1))
     (effects (font (size 1.27 1.27)) (justify left top))
