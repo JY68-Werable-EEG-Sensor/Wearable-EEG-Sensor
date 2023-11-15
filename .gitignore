@@ -1,2 +1,4 @@
 ## Ignore KiCAD lock files
 *.lck
+*cache
+Capstone-backups/
