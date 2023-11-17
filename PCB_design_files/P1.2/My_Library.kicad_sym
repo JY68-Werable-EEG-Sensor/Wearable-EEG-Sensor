@@ -121,7 +121,7 @@
     (property "Datasheet" "" (at 0 2.54 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (symbol "TLV9102_0_1"
+    (symbol "TLV9102_1_1"
       (polyline
         (pts
           (xy -5.08 1.27)
@@ -131,10 +131,8 @@
           (xy -5.08 1.27)
         )
         (stroke (width 0) (type default))
-        (fill (type none))
+        (fill (type background))
       )
-    )
-    (symbol "TLV9102_1_1"
       (pin output line (at -7.62 0 0) (length 2.54)
         (name "OUT1" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
