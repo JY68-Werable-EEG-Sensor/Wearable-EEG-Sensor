@@ -1,29 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2023-11-23T22:17:24.589Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="LyTJ1YhFATy0E477XSvw" version="22.1.3" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-24T06:30:13.688Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="7B8CDy-4YT2q3re9TQcy" version="22.1.3" type="github">
   <diagram name="Page-1" id="90a13364-a465-7bf4-72fc-28e22215d7a0">
     <mxGraphModel dx="1235" dy="675" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
-        <mxCell id="5r-JWKK5CV_Yb31bxAMr-4" value="PC Software Backend" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="1120" y="289" width="380" height="281" as="geometry" />
+        <mxCell id="5r-JWKK5CV_Yb31bxAMr-4" value="Web Service" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1120" y="289" width="380" height="371" as="geometry" />
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-36" value="Local Device" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="328.5" width="160" height="311.5" as="geometry" />
         </mxCell>
         <mxCell id="s0mcBkMtOpM20F1sE7we-3" value="AWS Server" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="1140" y="429" width="340" height="120" as="geometry" />
+          <mxGeometry x="1320" y="329" width="160" height="311" as="geometry" />
         </mxCell>
         <mxCell id="5r-JWKK5CV_Yb31bxAMr-5" value="Wearable Device Package" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="700" y="289" width="390" height="330" as="geometry" />
+          <mxGeometry x="720" y="289" width="360" height="341" as="geometry" />
         </mxCell>
-        <mxCell id="s0mcBkMtOpM20F1sE7we-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="5r-JWKK5CV_Yb31bxAMr-7" target="s0mcBkMtOpM20F1sE7we-7">
+        <mxCell id="s0mcBkMtOpM20F1sE7we-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5r-JWKK5CV_Yb31bxAMr-7" target="s0mcBkMtOpM20F1sE7we-7">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5r-JWKK5CV_Yb31bxAMr-7" value="Bluetooth Receiver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+        <mxCell id="5r-JWKK5CV_Yb31bxAMr-7" value="Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="1160" y="359" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5r-JWKK5CV_Yb31bxAMr-10" value="Printed Circuit Board" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
-          <mxGeometry x="720" y="329" width="350" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="s0mcBkMtOpM20F1sE7we-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5r-JWKK5CV_Yb31bxAMr-12" target="5r-JWKK5CV_Yb31bxAMr-7">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry x="740" y="329" width="320" height="160" as="geometry" />
         </mxCell>
         <mxCell id="5r-JWKK5CV_Yb31bxAMr-12" value="Bluetooth Transmitter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="920" y="359" width="120" height="60" as="geometry" />
@@ -52,23 +52,40 @@
         <mxCell id="5r-JWKK5CV_Yb31bxAMr-21" value="Signal Conditioning Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="760" y="359" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="5r-JWKK5CV_Yb31bxAMr-22" value="&lt;i&gt;Direction of arrow indicates flow of EEG Data&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="950" y="680" width="250" height="30" as="geometry" />
+        <mxCell id="5r-JWKK5CV_Yb31bxAMr-22" value="&lt;i&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Direction of arrow indicates flow of EEG Data&lt;/font&gt;&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="940" y="740" width="306" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="s0mcBkMtOpM20F1sE7we-4" value="Graphical EEG Display" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="1340" y="469" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="s0mcBkMtOpM20F1sE7we-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-7" target="s0mcBkMtOpM20F1sE7we-4">
+        <mxCell id="s0mcBkMtOpM20F1sE7we-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-7" target="s0mcBkMtOpM20F1sE7we-40">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="s0mcBkMtOpM20F1sE7we-7" value="Graphical EEG Display" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="1160" y="469" width="120" height="60" as="geometry" />
+        <mxCell id="s0mcBkMtOpM20F1sE7we-7" value="Additional Signal Processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="359" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="s0mcBkMtOpM20F1sE7we-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-11" target="5r-JWKK5CV_Yb31bxAMr-19">
+        <mxCell id="s0mcBkMtOpM20F1sE7we-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-11" target="5r-JWKK5CV_Yb31bxAMr-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="s0mcBkMtOpM20F1sE7we-11" value="User &lt;br&gt;(not in scope)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="530" y="549" width="120" height="60" as="geometry" />
+          <mxGeometry x="760" y="655" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-18" target="s0mcBkMtOpM20F1sE7we-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-18" value="Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-20" value="Graphical EEG Display" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-44" value="Saved Data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-40" target="s0mcBkMtOpM20F1sE7we-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-51" value="Real Time &lt;br&gt;Display" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0mcBkMtOpM20F1sE7we-40" target="s0mcBkMtOpM20F1sE7we-20">
+          <mxGeometry x="-0.3806" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s0mcBkMtOpM20F1sE7we-40" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1385" y="444.5" width="30" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
