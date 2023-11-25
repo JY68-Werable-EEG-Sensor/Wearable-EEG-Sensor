@@ -8,3 +8,6 @@ P1.2-backups/
 
 ## Ignore lock files
 *.lck
+
+## Ignore python venv
+.venv
