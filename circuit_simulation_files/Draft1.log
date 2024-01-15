@@ -1,4 +1,4 @@
-Circuit: * C:\Users\legen\OneDrive\Documents\LTspiceXVII\Draft1.asc
+Circuit: * C:\Users\alber\Downloads\Wearable-EEG-Sensor\circuit_simulation_files\Draft1.asc
 
 WARNING: Less than two connections to node NC_01.  This node is used by R:U4:1.
 WARNING: Less than two connections to node NC_02.  This node is used by R:U1:1.
@@ -33,21 +33,19 @@ Ignoring empty pin current: Ix(u4:vin+)
 Ignoring empty pin current: Ix(u1:vin-)
 Ignoring empty pin current: Ix(u1:vin+)
 
-Date: Wed Nov 15 12:58:03 2023
-Total elapsed time: 1.767 seconds.
+Date: Thu Nov 30 14:19:22 2023
+Total elapsed time: 0.393 seconds.
 
 tnom = 27
 temp = 27
-method = modified trap
-totiter = 20119
-traniter = 20082
-tranpoints = 10042
-accept = 10037
-rejected = 5
+method = trap
+totiter = 37
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
 matrix size = 537
-fillins = 611
+fillins = 595
 solver = Normal
-Thread vector: 86.5/25.6[11] 25.2/10.0[11] 14.5/7.8[11] 1.7/3.7[1]  2592/500
-Matrix Compiler1: 50.72 KB object code size  28.0/14.0/[6.6]
-Matrix Compiler2: 51.10 KB object code size  12.0/13.1/[2.9]
-
+Matrix Compiler1:    2884 opcodes
+Matrix Compiler2:    4061 opcodes
