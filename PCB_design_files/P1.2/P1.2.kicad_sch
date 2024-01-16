@@ -2408,13 +2408,6 @@
     (uuid dbb0c8c6-6291-4999-a184-3faa9ebf43e5)
   )
 
-  (text_box "add switch footprint\n"
-    (at 73.66 144.78 0) (size 22.86 5.08)
-    (stroke (width 0) (type default))
-    (fill (type color) (color 255 215 209 1))
-    (effects (font (size 1.27 1.27)) (justify left top))
-    (uuid a653fc07-514c-4d6f-b776-838433f4bc2d)
-  )
   (text_box "Legend:\nJ12:     J13:\n1 - GND  1 - 5V\n2 - D2   2 - A0\n3 - D3   3 - A1\n4 - D4   4 - A2\n5 - D5   5 - A3\n6 - GND  6 - VIN\nAlbert - I couldn't rename the pins on the headers so I just made this instead"
     (at 255.27 161.29 0) (size 22.86 26.67)
     (stroke (width 0) (type default))
@@ -3730,7 +3723,7 @@
     (property "Value" "DS04-254-1S-01BK" (at 64.77 153.67 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 64.77 158.75 0)
+    (property "Footprint" "DS04_254_1S_01BK:SW_DS04-254-1S-01BK" (at 64.77 158.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 158.75 0)
