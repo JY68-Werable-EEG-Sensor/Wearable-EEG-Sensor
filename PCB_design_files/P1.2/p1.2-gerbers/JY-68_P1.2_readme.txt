@@ -1,0 +1,10 @@
+Layer count – 2L
+Finished board thickness and tolerance  - .062” +/- 10%
+Laminate requirements – FR4
+Cu weight (base, inner and outer) - We will use 0.5 oz base Cu plus target plating of 1 mil minimum average in the hole (≈1.5 oz finished copper)
+Surface finish – HASL
+Solder mask color - Green
+Silkscreen color - White
+Special requirements (via plug, via cap and fill, selective hard Au, etc.) - None
+Individual boards or palletize - Individual
+Qty required - 4
