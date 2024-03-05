@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+//import { useTheme } from "@mui/material";
 import CanvasJSReact from '@canvasjs/react-charts';
 import Box from "@mui/material/Box";
+//import { tokens } from "../theme";
 //import NavBar from "./components/navBar/NavBar";
 
 
@@ -8,25 +10,34 @@ import Box from "@mui/material/Box";
  
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-class Graph extends Component {
+
+class LineChart extends Component {
 	
 	render() {
+        
+
 		const options = {
+            theme: "dark2",
+            //backgroundColor: "#4d4d80",
+            backgroundColor: "#131516",
 			animationEnabled: true,
-			title:{
-				text: "EEG Data"
-			},
+            
+			//title:{ text: "EEG Data"},
 			axisX: {
-				title: "time (s)"
+				title: "time (s)",
+                
 			},
 			axisY: {
 				title: "Voltage",
+                gridThickness: "0",
+                lineThickness: "1",
 				suffix: "V"
 			},
 			data: [{
 				yValueFormatString: "#,###",
 				xValueFormatString: "#,###",
 				type: "spline",
+                color: "#49a08c",
 				dataPoints: [
 					{ x: 0, y: 25060 },
 					{ x: 1, y: 27980 },
@@ -46,10 +57,10 @@ class Graph extends Component {
 
 		return (
 			<div>
-
-				<Box sx={{ml: 35, mt: 15, mr: 10 }}> 
-					<CanvasJSChart options = {options}
-						/* onRef={ref => this.chart = ref} */
+				<Box sx={{ flexGrow: 1 }}> 
+					<CanvasJSChart 
+                        options = {options}
+						onRef={ref => this.chart = ref} 
 					/>
 					{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 				</Box>
@@ -57,4 +68,4 @@ class Graph extends Component {
 		);
 	}
 }
-export default Graph;
+export default LineChart;

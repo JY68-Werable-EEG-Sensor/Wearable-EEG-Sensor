@@ -1,18 +1,51 @@
-import React from "react";
+//import React from "react";
+import { ColorModeContext, useMode } from "./theme";
+import { Routes, Route } from "react-router-dom"
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import Topbar from "./scenes/global/Topbar";
+import SidebarNav from "./scenes/global/SidebarNav";
+import Dashboard from "./scenes";
+
+/*
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import Graph from "./components/graph/graph";
-import History from "./components/history/history";
-import NavBar from "./components/navBar/NavBar";
+import Graph from "./components/graph";
+import History from "./components/history";
+import NavBar from "./components/NavBar";
+*/
+
 
 function App() {
+  const [theme, colorMode] = useMode();
 
   return (
-    <Router>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <div className="app">
+            <SidebarNav />
+              <main className="content"> 
+                <Topbar /> 
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                </Routes>
+              </main>
+          </div>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+
+    
+  );
+}
+
+export default App;
+
+/*
+<Router>
       <div className="App">
         <NavBar />
         <Routes>
@@ -25,7 +58,4 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
-}
-
-export default App;
+*/
