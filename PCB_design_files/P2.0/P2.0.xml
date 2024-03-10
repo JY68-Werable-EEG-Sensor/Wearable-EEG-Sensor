@@ -1,0 +1,1807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\cw\Desktop\capstone\repo\Wearable-EEG-Sensor\PCB_design_files\P2.0\P2.0.kicad_sch</source>
+    <date>2024-03-10 12:49:53 PM</date>
+    <tool>Eeschema 7.0.9</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Wearable EEG Sensor</title>
+        <company>JY-68</company>
+        <rev>P2.0</rev>
+        <date/>
+        <source>P2.0.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="AE1">
+      <value>Antenna_Chip</value>
+      <footprint>Library:XDCR_2450AT18B100E</footprint>
+      <datasheet>https://www.johansontechnology.com/datasheets/2450AT18B100/2450AT18B100.pdf</datasheet>
+      <libsource lib="Device" part="Antenna_Chip" description="Ceramic chip antenna with pin for PCB trace"/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Ceramic chip antenna with pin for PCB trace"/>
+      <property name="ki_keywords" value="antenna"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b2cb2f8e-f9b5-471b-9673-06207783f342</tstamps>
+    </comp>
+    <comp ref="BT1">
+      <value>BHSD-1225-SM</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical</footprint>
+      <datasheet>n/a</datasheet>
+      <libsource lib="Device" part="Battery_Cell" description="Single-cell battery"/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Single-cell battery"/>
+      <property name="ki_keywords" value="battery cell"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a845b4d3-4880-46c4-8490-c5514171c19d</tstamps>
+    </comp>
+    <comp ref="C1">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://www.yageo.com/upload/media/product/app/datasheet/mlcc/upy-gphc_x5r_4v-to-50v.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 10uF 6.3V 20% 0402 SMD</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="Part Number">CC0402MPX5R5BB106</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 10uF 6.3V 20% 0402 SMD"/>
+      <property name="Manufacturer" value="YAGEO"/>
+      <property name="Part Number" value="CC0402MPX5R5BB106"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3f1c0c36-7bec-4758-8e83-808957b7aaeb</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://www.yageo.com/upload/media/product/app/datasheet/mlcc/upy-gphc_x5r_4v-to-50v.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 10uF 6.3V 20% 0402 SMD</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="Part Number">CC0402MPX5R5BB106</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 10uF 6.3V 20% 0402 SMD"/>
+      <property name="Manufacturer" value="YAGEO"/>
+      <property name="Part Number" value="CC0402MPX5R5BB106"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1a00aa30-c69a-417a-8e35-d2ba1b71d273</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5efd50d9-e55d-491a-9f95-3395cbd3490b</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>65fb0ae2-7f9f-4a2b-aa2c-cbec47656b8d</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2941d911-1beb-429c-9d0a-a0c6e38cb1ba</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>10nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_automotive_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 10nF 25V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">CGA2B2X7R1E103K050BA</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 10nF 25V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="CGA2B2X7R1E103K050BA"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>07f1779d-0f13-45dc-8187-aaa7917b1ffb</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://www.yageo.com/upload/media/product/app/datasheet/mlcc/upy-gphc_x5r_4v-to-50v.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 10uF 6.3V 20% 0402 SMD</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="Part Number">CC0402MPX5R5BB106</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 10uF 6.3V 20% 0402 SMD"/>
+      <property name="Manufacturer" value="YAGEO"/>
+      <property name="Part Number" value="CC0402MPX5R5BB106"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93da33ad-0180-45a1-a6fb-c588b8dd2eac</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 2.2uF 6.3V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X5R0J225K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 2.2uF 6.3V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X5R0J225K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40b4998a-d376-4d4f-aa50-1613154be609</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>33uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 33uF 6.3V 20% 0805 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C2012X5R0J336M125AC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 33uF 6.3V 20% 0805 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C2012X5R0J336M125AC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8b700d15-90f7-4eea-8679-6be8a510da63</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 1uF 25V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X5R1E105K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 1uF 25V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X5R1E105K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>19270be2-e16a-4259-84da-f74006fccf1a</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 1uF 25V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X5R1E105K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 1uF 25V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X5R1E105K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8295fdb5-7d1c-4131-8a62-4988177a445c</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0bca224f-4e2c-4188-8ec8-6f45b189dce4</tstamps>
+    </comp>
+    <comp ref="C13">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>83a83d43-c7cb-4b38-8595-b213fbfab7b6</tstamps>
+    </comp>
+    <comp ref="C14">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4e15ac36-0960-43ba-9f5f-9e79e084227b</tstamps>
+    </comp>
+    <comp ref="C15">
+      <value>1.2pF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GP_NP0_16V-to-50V_18.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 1.2pF 50V 10% 0402 SMD</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="Part Number">CC0402BRNPO9BN1R2</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 1.2pF 50V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="YAGEO"/>
+      <property name="Part Number" value="CC0402BRNPO9BN1R2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8c5c83dc-b0f9-4280-be6e-9d594aa4373a</tstamps>
+    </comp>
+    <comp ref="C16">
+      <value>12pF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_automotive_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 12pF 50V 5% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">CGA2B2C0G1H120J050BA</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 12pF 50V 5% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="CGA2B2C0G1H120J050BA"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d7621b06-138a-4211-8074-0c1f3f399b33</tstamps>
+    </comp>
+    <comp ref="C17">
+      <value>100pF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_automotive_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 100pF 50V 5% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">CGA2B2C0G1H101J050BA</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 100pF 50V 5% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="CGA2B2C0G1H101J050BA"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44370f54-e4ac-414a-9929-3c53577039e6</tstamps>
+    </comp>
+    <comp ref="C18">
+      <value>12pF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_automotive_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 12pF 50V 5% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">CGA2B2C0G1H120J050BA</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 12pF 50V 5% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="CGA2B2C0G1H120J050BA"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0809a8c3-b4c8-4182-83f3-e08240db528c</tstamps>
+    </comp>
+    <comp ref="C19">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 1uF 10V 10% 0603 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1608X5R1A105K080AC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 1uF 10V 10% 0603 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1608X5R1A105K080AC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>051a65b1-b860-48d3-91d2-ebd5361962ef</tstamps>
+    </comp>
+    <comp ref="C20">
+      <value>4.7uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 4.7uF 25V 10% 0603 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1608X5R1E475K080AC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 4.7uF 25V 10% 0603 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1608X5R1E475K080AC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9c07129d-63d8-4a9f-bfe0-08e2995f5771</tstamps>
+    </comp>
+    <comp ref="C22">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2b11955d-991b-4363-824f-1b1a205e6a73</tstamps>
+    </comp>
+    <comp ref="C23">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>62708aba-f37a-44f1-b03b-9314a23a67c4</tstamps>
+    </comp>
+    <comp ref="C24">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 1uF 25V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X5R1E105K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 1uF 25V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X5R1E105K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d2bff56e-1886-4e9b-bfc3-b09b9e6cfbd2</tstamps>
+    </comp>
+    <comp ref="C25">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 1uF 25V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X5R1E105K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 1uF 25V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X5R1E105K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0d13145-a619-4a83-8f25-ee255667e40e</tstamps>
+    </comp>
+    <comp ref="C26">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf</datasheet>
+      <fields>
+        <field name="Description">CAP CER 0.1uF 16V 10% 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">C1005X7R1C104K050BC</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="CAP CER 0.1uF 16V 10% 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="C1005X7R1C104K050BC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f93f4e3b-1e0f-42b3-a7c3-7bb87c36d95d</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <datasheet>https://www.we-online.com/components/products/datasheet/150060VS75000.pdf</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b5eb43fa-b719-4552-9dc3-ef4c9186934c</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>EEG_IN</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <datasheet>n/a</datasheet>
+      <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1d8cd21a-ca9e-4c62-9fa8-88467466f4cc</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>20021121-00008C4LF</value>
+      <footprint>20021121_00008C4LF:AMPHENOL_20021121-00008C4LF</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2587/Minitek%20127_Catalog.pdf</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_02x04_Counter_Clockwise" description="Generic connector, double row, 02x04, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, double row, 02x04, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9f1a18f5-6599-4c28-9343-368a372add1b</tstamps>
+    </comp>
+    <comp ref="L1">
+      <value>2.2uH</value>
+      <footprint>Inductor_SMD:L_0603_1608Metric</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1817/MBKK1608T2R2M_SS.pdf</datasheet>
+      <fields>
+        <field name="Description">INDUCTOR 2.2uH 750mA 345mOhm 0603 SMD</field>
+        <field name="Manufacturer">Taiyo Yuden</field>
+        <field name="Part Number">MBKK1608T2R2M</field>
+      </fields>
+      <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Description" value="INDUCTOR 2.2uH 750mA 345mOhm 0603 SMD"/>
+      <property name="Manufacturer" value="Taiyo Yuden"/>
+      <property name="Part Number" value="MBKK1608T2R2M"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Inductor"/>
+      <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2cb714c3-2799-4c76-9284-351662537d99</tstamps>
+    </comp>
+    <comp ref="L2">
+      <value>3.3nH</value>
+      <footprint>Inductor_SMD:L_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/en/system/files?file=dam/doc/product/inductor/inductor/smd/catalog/inductor_commercial_high-frequency_mlg1005s_en.pdf</datasheet>
+      <fields>
+        <field name="Description">INDUCTOR 3.3nH 800mA 200mOhm 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">MLG1005S3N3BT000</field>
+      </fields>
+      <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Description" value="INDUCTOR 3.3nH 800mA 200mOhm 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="MLG1005S3N3BT000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Inductor"/>
+      <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d6394f69-9e8e-4601-ba7d-fc5ffb407c0e</tstamps>
+    </comp>
+    <comp ref="L3">
+      <value>2.7nH</value>
+      <footprint>Inductor_SMD:L_0402_1005Metric</footprint>
+      <datasheet>https://product.tdk.com/en/system/files?file=dam/doc/product/inductor/inductor/smd/catalog/inductor_commercial_high-frequency_mlg1005s_en.pdf</datasheet>
+      <fields>
+        <field name="Description">INDUCTOR 2.7nH 800mA 150mOhm 0402 SMD</field>
+        <field name="Manufacturer">TDK Corporation</field>
+        <field name="Part Number">MLG1005S2N7ST000</field>
+      </fields>
+      <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Description" value="INDUCTOR 2.7nH 800mA 150mOhm 0402 SMD"/>
+      <property name="Manufacturer" value="TDK Corporation"/>
+      <property name="Part Number" value="MLG1005S2N7ST000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Inductor"/>
+      <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>875ddbfa-73f0-4170-8602-7a34ce4cb1e3</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>68k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 68k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT68K0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 68k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT68K0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3b8c49c5-0194-48f4-847d-735673a798f3</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>68k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 68k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT68K0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 68k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT68K0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eb4e7a6f-b9e5-4c02-bc80-1ae012f39df5</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>8.2k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 8.2k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT8K20</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 8.2k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT8K20"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b27a0b24-fedf-4bca-8ebc-f70dba8b7257</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 100k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT100K</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 100k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT100K"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c2fc7650-2072-46a2-9af5-08cf1f8ffcfc</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 1k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT1K00</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 1k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT1K00"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8f024f22-5d12-4cee-a521-c4ced618e444</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>20k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 20k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT20K0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 20k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT20K0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>75e59247-8ce8-40d9-93c3-b94cf897cf50</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 1k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT1K00</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 1k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT1K00"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1bb38555-8c42-4d28-adc5-14ad2e56cc13</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 100k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT100K</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 100k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT100K"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67c40051-daa6-410e-bd7d-b8df3b5b7429</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 100k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT100K</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 100k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT100K"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a8c22b88-8478-415f-bfa0-2cc3ee7f6e89</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>604</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 604 OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT604R</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 604 OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT604R"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c6886fd-bd91-4747-b9ba-9177981dc447</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>16k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 16k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT16K0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 16k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT16K0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>503699d2-f1c4-4887-b231-ed64008f1a35</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>2.49k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 2.49k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT2K49</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 2.49k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT2K49"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c963be18-6115-40b2-af5f-d98ff7b7f0e5</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>49.9k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 49.9k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT49K9</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 49.9k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT49K9"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>53d775ce-68fc-474a-a95e-8735090a249a</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 10k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT10K0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 10k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT10K0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>37851517-924e-4e5e-a455-b87df64282bc</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 100k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT100K</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 100k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT100K"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d98b3789-954b-46db-9aa5-7a0893c224c3</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 100k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT100K</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 100k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT100K"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>925fa922-557f-4510-8f48-5e6cd34e1491</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>1.1k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 1.1k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT1K10</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 1.1k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT1K10"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d2900a8c-7428-4df6-b171-da319c91f1dc</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>4.75k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 4.75k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT4K75</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 4.75k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT4K75"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b51bb6ef-985f-4564-94e5-ae4d1e3c945b</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf</datasheet>
+      <fields>
+        <field name="Description">RES 10k OHM 1/16W 1% 0402 SMD</field>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part Number">RMCF0402FT10K0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Description" value="RES 10k OHM 1/16W 1% 0402 SMD"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part Number" value="RMCF0402FT10K0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2cd373ec-dd74-4e53-92f7-7fb2cb8996dd</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>INA819IDRGR</value>
+      <footprint>Package_SON:WSON-8-1EP_3x3mm_P0.5mm_EP1.45x2.4mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/ina819.pdf</datasheet>
+      <fields>
+        <field name="Description">IC OPAMP INSTRUMENTATION 8-WSON</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="Part Number">INA819IDRGR</field>
+      </fields>
+      <libsource lib="INA819IDRGR" part="INA819IDRGR" description=""/>
+      <property name="Description" value="IC OPAMP INSTRUMENTATION 8-WSON"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="Part Number" value="INA819IDRGR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_keywords" value="INA819IDRGR"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>135c567a-d0b6-4063-929b-d3c5d7db909c</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>TLV9102IDSGR</value>
+      <footprint>Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tlv9101.pdf?ts=1709851187168&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</datasheet>
+      <fields>
+        <field name="Description">IC OPAMP DUAL 8-WSON</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="Part Number">TLV9102IDSGR</field>
+      </fields>
+      <libsource lib="My_Library" part="TLV9102" description=""/>
+      <property name="Description" value="IC OPAMP DUAL 8-WSON"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="Part Number" value="TLV9102IDSGR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1239fcc1-4a78-45bc-95b2-684b4915c4a0</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>TPS61094</value>
+      <footprint>Package_SON:WSON-12-1EP_3x2mm_P0.5mm_EP1x2.65</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps61094.pdf?ts=1709168053866&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</datasheet>
+      <fields>
+        <field name="Description">IC BOOST CONV 12-WSON</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="Part Number">TPS61094</field>
+      </fields>
+      <libsource lib="My_Library" part="TPS61094" description=""/>
+      <property name="Description" value="IC BOOST CONV 12-WSON"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="Part Number" value="TPS61094"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>68982d8e-6f13-412e-b343-d2984c8a1925</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>TPS60400</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps60400.pdf?ts=1709088547524&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</datasheet>
+      <fields>
+        <field name="Description">IC CHARGE PUMP 5-SOT-23</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="Part Number">TPS60400DBV</field>
+      </fields>
+      <libsource lib="Amplifier_Current" part="AD8211" description="65V High Voltage, Current Shunt Monitor, 20V/V gain, bandwidth 500kHz, Vcc=5V, SOT-23-5"/>
+      <property name="Description" value="IC CHARGE PUMP 5-SOT-23"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="Part Number" value="TPS60400DBV"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="65V High Voltage, Current Shunt Monitor, 20V/V gain, bandwidth 500kHz, Vcc=5V, SOT-23-5"/>
+      <property name="ki_keywords" value="highside HS current sense amplifier linear buffered"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cd926d9e-f923-4d94-99de-1057d2e311fd</tstamps>
+    </comp>
+    <comp ref="U5">
+      <value>NRF52832-QFAA-R</value>
+      <footprint>Library:QFN-48_NOR</footprint>
+      <datasheet>NRF52832-QFAA-R</datasheet>
+      <libsource lib="NRF52832_QFAA" part="NRF52832-QFAA-R" description=""/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_keywords" value="NRF52832-QFAA-R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>17a45863-e4d4-4579-bf6b-5083d4b4b4fb</tstamps>
+    </comp>
+    <comp ref="Y1">
+      <value>32MHz</value>
+      <footprint>ECS_320_8_37CKM:XTAL_ECS-320-8-37CKM</footprint>
+      <datasheet>https://ecsxtal.com/store/pdf/ecx-1637.pdf</datasheet>
+      <libsource lib="Device" part="Crystal_GND24" description="Four pin crystal, GND on pins 2 and 4"/>
+      <property name="Description" value=""/>
+      <property name="Manufacturer" value=""/>
+      <property name="Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="P2.0.kicad_sch"/>
+      <property name="ki_description" value="Four pin crystal, GND on pins 2 and 4"/>
+      <property name="ki_keywords" value="quartz ceramic resonator oscillator"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7ea3aac8-255c-4485-8ec6-0956ee1ca165</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Amplifier_Current" part="AD8211">
+      <description>65V High Voltage, Current Shunt Monitor, 20V/V gain, bandwidth 500kHz, Vcc=5V, SOT-23-5</description>
+      <docs>https://www.ti.com/lit/ds/symlink/tps60400.pdf?ts=1709088547524&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U4</field>
+        <field name="Value">TPS60400</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps60400.pdf?ts=1709088547524&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</field>
+        <field name="Puchasing">https://www.digikey.com/en/products/detail/texas-instruments/TPS60400DBVR/1672052</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="power_in"/>
+        <pin num="2" name="IN" type="power_in"/>
+        <pin num="3" name="CFLY-" type="input"/>
+        <pin num="4" name="GND" type="input"/>
+        <pin num="5" name="CFLY+" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x02_Pin">
+      <description>Generic connector, single row, 01x02, script generated</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02_Pin</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_02x04_Counter_Clockwise">
+      <description>Generic connector, double row, 02x04, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_2x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_02x04_Counter_Clockwise</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Antenna_Chip">
+      <description>Ceramic chip antenna with pin for PCB trace</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">AE</field>
+        <field name="Value">Antenna_Chip</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="FEED" type="input"/>
+        <pin num="2" name="PCB_Trace" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Battery_Cell">
+      <description>Single-cell battery</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">Battery_Cell</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal_GND24">
+      <description>Four pin crystal, GND on pins 2 and 4</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal_GND24</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="L">
+      <description>Inductor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="INA819IDRGR" part="INA819IDRGR">
+      <docs>INA819IDRGR</docs>
+      <footprints>
+        <fp>SON_9IDRGR_TEX</fp>
+        <fp>SON_9IDRGR_TEX-M</fp>
+        <fp>SON_9IDRGR_TEX-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U1</field>
+        <field name="Value">INA819IDRGR</field>
+        <field name="Footprint">SON_9IDRGR_TEX</field>
+        <field name="Datasheet">INA819IDRGR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="-IN" type="input"/>
+        <pin num="2" name="RG" type="unspecified"/>
+        <pin num="3" name="RG" type="unspecified"/>
+        <pin num="4" name="+IN" type="input"/>
+        <pin num="5" name="-VS" type="power_in"/>
+        <pin num="6" name="REF" type="unspecified"/>
+        <pin num="7" name="OUT" type="output"/>
+        <pin num="8" name="+VS" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="My_Library" part="TLV9102">
+      <fields>
+        <field name="Reference">U</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT1" type="output"/>
+        <pin num="2" name="IN1-" type="input"/>
+        <pin num="3" name="IN1+" type="input"/>
+        <pin num="4" name="V-" type="input"/>
+        <pin num="5" name="IN2+" type="input"/>
+        <pin num="6" name="IN2-" type="input"/>
+        <pin num="7" name="OUT2" type="output"/>
+        <pin num="8" name="V+" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="My_Library" part="TPS61094">
+      <fields>
+        <field name="Reference">U2</field>
+        <field name="Value">TPS61094</field>
+        <field name="Footprint">TPS61094DSSR:WSON_94DSSR_TEX</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OSEL" type="input"/>
+        <pin num="2" name="MODE" type="input"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="VIN" type="input"/>
+        <pin num="5" name="SW" type="input"/>
+        <pin num="6" name="SUP" type="input"/>
+        <pin num="7" name="PGND" type="output"/>
+        <pin num="8" name="AGND" type="output"/>
+        <pin num="9" name="VOUT" type="output"/>
+        <pin num="10" name="VOUT" type="output"/>
+        <pin num="11" name="ICHG" type="input"/>
+        <pin num="12" name="VCHG" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="NRF52832_QFAA" part="NRF52832-QFAA-R">
+      <docs>NRF52832-QFAA-R</docs>
+      <footprints>
+        <fp>QFN-48_NOR</fp>
+        <fp>QFN-48_NOR-M</fp>
+        <fp>QFN-48_NOR-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U5</field>
+        <field name="Value">NRF52832-QFAA-R</field>
+        <field name="Footprint">Library:QFN-48_NOR</field>
+        <field name="Datasheet">NRF52832-QFAA-R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="DEC1" type="power_in"/>
+        <pin num="2" name="P0.00/XL1" type="bidirectional"/>
+        <pin num="3" name="P0.01/XL2" type="bidirectional"/>
+        <pin num="4" name="P0.02/AIN0" type="bidirectional"/>
+        <pin num="5" name="P0.03/AIN1" type="bidirectional"/>
+        <pin num="6" name="P0.04/AIN2" type="bidirectional"/>
+        <pin num="7" name="P0.05/AIN3" type="bidirectional"/>
+        <pin num="8" name="P0.06" type="bidirectional"/>
+        <pin num="9" name="P0.07" type="bidirectional"/>
+        <pin num="10" name="P0.08" type="bidirectional"/>
+        <pin num="11" name="NFC1/P0.09" type="bidirectional"/>
+        <pin num="12" name="NFC2/P0.10" type="bidirectional"/>
+        <pin num="13" name="VDD" type="power_in"/>
+        <pin num="14" name="P0.11" type="bidirectional"/>
+        <pin num="15" name="P0.12" type="bidirectional"/>
+        <pin num="16" name="P0.13" type="bidirectional"/>
+        <pin num="17" name="P0.14/TRACEDATA[3]" type="bidirectional"/>
+        <pin num="18" name="P0.15/TRACEDATA[2]" type="bidirectional"/>
+        <pin num="19" name="P0.16/TRACEDATA[1]" type="bidirectional"/>
+        <pin num="20" name="P0.17" type="bidirectional"/>
+        <pin num="21" name="P0.18/TRACEDATA[0]/SWO" type="bidirectional"/>
+        <pin num="22" name="P0.19" type="bidirectional"/>
+        <pin num="23" name="P0.20/TRACECLK" type="bidirectional"/>
+        <pin num="24" name="P0.21/Nreset" type="bidirectional"/>
+        <pin num="25" name="SWDCLK" type="input"/>
+        <pin num="26" name="SWDIO" type="bidirectional"/>
+        <pin num="27" name="P0.22" type="bidirectional"/>
+        <pin num="28" name="P0.23" type="bidirectional"/>
+        <pin num="29" name="P0.24" type="bidirectional"/>
+        <pin num="30" name="ANT" type="unspecified"/>
+        <pin num="31" name="VSS" type="power_in"/>
+        <pin num="32" name="DEC2" type="power_in"/>
+        <pin num="33" name="DEC3" type="power_in"/>
+        <pin num="34" name="XC1" type="input"/>
+        <pin num="35" name="XC2" type="input"/>
+        <pin num="36" name="VDD" type="power_in"/>
+        <pin num="37" name="P0.25" type="bidirectional"/>
+        <pin num="38" name="P0.26" type="bidirectional"/>
+        <pin num="39" name="P0.27" type="bidirectional"/>
+        <pin num="40" name="P0.28/AIN4" type="bidirectional"/>
+        <pin num="41" name="P0.29/AIN5" type="bidirectional"/>
+        <pin num="42" name="P0.30/AIN6" type="bidirectional"/>
+        <pin num="43" name="P0.31/AIN7" type="bidirectional"/>
+        <pin num="44" name="NC" type="no_connect"/>
+        <pin num="45" name="VSS" type="power_in"/>
+        <pin num="46" name="DEC4" type="power_in"/>
+        <pin num="47" name="DCC" type="power_in"/>
+        <pin num="48" name="VDD" type="power_in"/>
+        <pin num="49" name="EPAD" type="unspecified"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Amplifier_Current">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Amplifier_Current.kicad_sym</uri>
+    </library>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Device.kicad_sym</uri>
+    </library>
+    <library logical="My_Library">
+      <uri>C:\Users\cw\Desktop\capstone\repo\Wearable-EEG-Sensor\PCB_design_files\P2.0/My_Library.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3V3">
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="C20" pin="1" pintype="passive"/>
+      <node ref="C22" pin="2" pintype="passive"/>
+      <node ref="C25" pin="2" pintype="passive"/>
+      <node ref="C26" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="+VS" pintype="power_in"/>
+      <node ref="U2" pin="8" pinfunction="V+" pintype="input"/>
+      <node ref="U3" pin="10" pinfunction="VOUT" pintype="output"/>
+      <node ref="U3" pin="9" pinfunction="VOUT" pintype="output"/>
+      <node ref="U4" pin="2" pinfunction="IN" pintype="power_in"/>
+      <node ref="U5" pin="13" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U5" pin="36" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U5" pin="48" pinfunction="VDD" pintype="power_in"/>
+    </net>
+    <net code="2" name="-3V3">
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C23" pin="2" pintype="passive"/>
+      <node ref="C24" pin="2" pintype="passive"/>
+      <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="-VS" pintype="power_in"/>
+      <node ref="U2" pin="4" pinfunction="V-" pintype="input"/>
+      <node ref="U4" pin="1" pinfunction="OUT" pintype="power_in"/>
+    </net>
+    <net code="3" name="/EEG+">
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="-IN" pintype="input"/>
+    </net>
+    <net code="4" name="/EEG-">
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="+IN" pintype="input"/>
+    </net>
+    <net code="5" name="GND">
+      <node ref="BT1" pin="2" pinfunction="-" pintype="passive"/>
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="C16" pin="1" pintype="passive"/>
+      <node ref="C17" pin="1" pintype="passive"/>
+      <node ref="C18" pin="1" pintype="passive"/>
+      <node ref="C19" pin="2" pintype="passive"/>
+      <node ref="C20" pin="2" pintype="passive"/>
+      <node ref="C22" pin="1" pintype="passive"/>
+      <node ref="C23" pin="1" pintype="passive"/>
+      <node ref="C24" pin="1" pintype="passive"/>
+      <node ref="C25" pin="1" pintype="passive"/>
+      <node ref="C26" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="L3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="REF" pintype="unspecified"/>
+      <node ref="U3" pin="11" pinfunction="ICHG" pintype="input"/>
+      <node ref="U3" pin="12" pinfunction="VCHG" pintype="input"/>
+      <node ref="U3" pin="7" pinfunction="PGND" pintype="output"/>
+      <node ref="U3" pin="8" pinfunction="AGND" pintype="output"/>
+      <node ref="U4" pin="4" pinfunction="GND" pintype="input"/>
+      <node ref="U5" pin="31" pinfunction="VSS" pintype="power_in"/>
+      <node ref="U5" pin="45" pinfunction="VSS" pintype="power_in"/>
+      <node ref="Y1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Y1" pin="4" pinfunction="4" pintype="passive"/>
+    </net>
+    <net code="6" name="NRST">
+      <node ref="J2" pin="5" pinfunction="Pin_5" pintype="passive"/>
+      <node ref="U5" pin="24" pinfunction="P0.21/Nreset" pintype="bidirectional"/>
+    </net>
+    <net code="7" name="Net-(AE1-FEED)">
+      <node ref="AE1" pin="1" pinfunction="FEED" pintype="input"/>
+      <node ref="L2" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="8" name="Net-(BT1-+)">
+      <node ref="BT1" pin="1" pinfunction="+" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="L1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="MODE" pintype="input"/>
+      <node ref="U3" pin="3" pinfunction="EN" pintype="input"/>
+      <node ref="U3" pin="4" pinfunction="VIN" pintype="input"/>
+      <node ref="U3" pin="6" pinfunction="SUP" pintype="input"/>
+    </net>
+    <net code="9" name="Net-(C1-Pad2)">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+    </net>
+    <net code="10" name="Net-(C2-Pad2)">
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+    </net>
+    <net code="11" name="Net-(C3-Pad2)">
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+    </net>
+    <net code="12" name="Net-(C5-Pad1)">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+    </net>
+    <net code="13" name="Net-(C7-Pad1)">
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+    </net>
+    <net code="14" name="Net-(C15-Pad1)">
+      <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="L2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="L3" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="15" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+    </net>
+    <net code="16" name="Net-(R3-Pad1)">
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="RG" pintype="unspecified"/>
+    </net>
+    <net code="17" name="Net-(R3-Pad2)">
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="RG" pintype="unspecified"/>
+    </net>
+    <net code="18" name="Net-(U1-OUT)">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="OUT" pintype="output"/>
+    </net>
+    <net code="19" name="Net-(U2-IN1+)">
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="IN1+" pintype="input"/>
+    </net>
+    <net code="20" name="Net-(U2-IN1-)">
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="IN1-" pintype="input"/>
+    </net>
+    <net code="21" name="Net-(U2-IN2+)">
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="IN2+" pintype="input"/>
+    </net>
+    <net code="22" name="Net-(U2-IN2-)">
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="IN2-" pintype="input"/>
+    </net>
+    <net code="23" name="Net-(U2-OUT1)">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="OUT1" pintype="output"/>
+    </net>
+    <net code="24" name="Net-(U2-OUT2)">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="U2" pin="7" pinfunction="OUT2" pintype="output"/>
+    </net>
+    <net code="25" name="Net-(U3-OSEL)">
+      <node ref="R19" pin="1" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="OSEL" pintype="input"/>
+    </net>
+    <net code="26" name="Net-(U3-SW)">
+      <node ref="L1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="SW" pintype="input"/>
+    </net>
+    <net code="27" name="Net-(U4-CFLY+)">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="U4" pin="5" pinfunction="CFLY+" pintype="output"/>
+    </net>
+    <net code="28" name="Net-(U4-CFLY-)">
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="U4" pin="3" pinfunction="CFLY-" pintype="input"/>
+    </net>
+    <net code="29" name="Net-(U5-ANT)">
+      <node ref="C15" pin="2" pintype="passive"/>
+      <node ref="U5" pin="30" pinfunction="ANT" pintype="unspecified"/>
+    </net>
+    <net code="30" name="Net-(U5-DEC1)">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="U5" pin="1" pinfunction="DEC1" pintype="power_in"/>
+    </net>
+    <net code="31" name="Net-(U5-DEC2)">
+      <node ref="U5" pin="32" pinfunction="DEC2" pintype="power_in"/>
+    </net>
+    <net code="32" name="Net-(U5-DEC3)">
+      <node ref="C17" pin="2" pintype="passive"/>
+      <node ref="U5" pin="33" pinfunction="DEC3" pintype="power_in"/>
+    </net>
+    <net code="33" name="Net-(U5-DEC4)">
+      <node ref="C19" pin="1" pintype="passive"/>
+      <node ref="U5" pin="46" pinfunction="DEC4" pintype="power_in"/>
+    </net>
+    <net code="34" name="Net-(U5-P0.02{slash}AIN0)">
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="P0.02/AIN0" pintype="bidirectional"/>
+    </net>
+    <net code="35" name="Net-(U5-XC1)">
+      <node ref="C18" pin="2" pintype="passive"/>
+      <node ref="U5" pin="34" pinfunction="XC1" pintype="input"/>
+      <node ref="Y1" pin="3" pinfunction="3" pintype="passive"/>
+    </net>
+    <net code="36" name="Net-(U5-XC2)">
+      <node ref="C16" pin="2" pintype="passive"/>
+      <node ref="U5" pin="35" pinfunction="XC2" pintype="input"/>
+      <node ref="Y1" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="37" name="STAGE_3_OUT">
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+    </net>
+    <net code="38" name="SWDCLK">
+      <node ref="J2" pin="7" pinfunction="Pin_7" pintype="passive"/>
+      <node ref="U5" pin="25" pinfunction="SWDCLK" pintype="input"/>
+    </net>
+    <net code="39" name="SWDIO">
+      <node ref="J2" pin="8" pinfunction="Pin_8" pintype="passive"/>
+      <node ref="U5" pin="26" pinfunction="SWDIO" pintype="bidirectional"/>
+    </net>
+    <net code="40" name="SWO">
+      <node ref="J2" pin="6" pinfunction="Pin_6" pintype="passive"/>
+      <node ref="U5" pin="21" pinfunction="P0.18/TRACEDATA[0]/SWO" pintype="bidirectional"/>
+    </net>
+    <net code="41" name="unconnected-(AE1-PCB_Trace-Pad2)">
+      <node ref="AE1" pin="2" pinfunction="PCB_Trace" pintype="passive"/>
+    </net>
+    <net code="42" name="unconnected-(U5-DCC-Pad47)">
+      <node ref="U5" pin="47" pinfunction="DCC" pintype="power_in"/>
+    </net>
+    <net code="43" name="unconnected-(U5-EPAD-Pad49)">
+      <node ref="U5" pin="49" pinfunction="EPAD" pintype="unspecified"/>
+    </net>
+    <net code="44" name="unconnected-(U5-NC-Pad44)">
+      <node ref="U5" pin="44" pinfunction="NC" pintype="no_connect"/>
+    </net>
+    <net code="45" name="unconnected-(U5-NFC1{slash}P0.09-Pad11)">
+      <node ref="U5" pin="11" pinfunction="NFC1/P0.09" pintype="bidirectional"/>
+    </net>
+    <net code="46" name="unconnected-(U5-NFC2{slash}P0.10-Pad12)">
+      <node ref="U5" pin="12" pinfunction="NFC2/P0.10" pintype="bidirectional"/>
+    </net>
+    <net code="47" name="unconnected-(U5-P0.00{slash}XL1-Pad2)">
+      <node ref="U5" pin="2" pinfunction="P0.00/XL1" pintype="bidirectional"/>
+    </net>
+    <net code="48" name="unconnected-(U5-P0.01{slash}XL2-Pad3)">
+      <node ref="U5" pin="3" pinfunction="P0.01/XL2" pintype="bidirectional"/>
+    </net>
+    <net code="49" name="unconnected-(U5-P0.03{slash}AIN1-Pad5)">
+      <node ref="U5" pin="5" pinfunction="P0.03/AIN1" pintype="bidirectional"/>
+    </net>
+    <net code="50" name="unconnected-(U5-P0.04{slash}AIN2-Pad6)">
+      <node ref="U5" pin="6" pinfunction="P0.04/AIN2" pintype="bidirectional"/>
+    </net>
+    <net code="51" name="unconnected-(U5-P0.05{slash}AIN3-Pad7)">
+      <node ref="U5" pin="7" pinfunction="P0.05/AIN3" pintype="bidirectional"/>
+    </net>
+    <net code="52" name="unconnected-(U5-P0.06-Pad8)">
+      <node ref="U5" pin="8" pinfunction="P0.06" pintype="bidirectional"/>
+    </net>
+    <net code="53" name="unconnected-(U5-P0.07-Pad9)">
+      <node ref="U5" pin="9" pinfunction="P0.07" pintype="bidirectional"/>
+    </net>
+    <net code="54" name="unconnected-(U5-P0.08-Pad10)">
+      <node ref="U5" pin="10" pinfunction="P0.08" pintype="bidirectional"/>
+    </net>
+    <net code="55" name="unconnected-(U5-P0.11-Pad14)">
+      <node ref="U5" pin="14" pinfunction="P0.11" pintype="bidirectional"/>
+    </net>
+    <net code="56" name="unconnected-(U5-P0.12-Pad15)">
+      <node ref="U5" pin="15" pinfunction="P0.12" pintype="bidirectional"/>
+    </net>
+    <net code="57" name="unconnected-(U5-P0.13-Pad16)">
+      <node ref="U5" pin="16" pinfunction="P0.13" pintype="bidirectional"/>
+    </net>
+    <net code="58" name="unconnected-(U5-P0.14{slash}TRACEDATA[3]-Pad17)">
+      <node ref="U5" pin="17" pinfunction="P0.14/TRACEDATA[3]" pintype="bidirectional"/>
+    </net>
+    <net code="59" name="unconnected-(U5-P0.15{slash}TRACEDATA[2]-Pad18)">
+      <node ref="U5" pin="18" pinfunction="P0.15/TRACEDATA[2]" pintype="bidirectional"/>
+    </net>
+    <net code="60" name="unconnected-(U5-P0.16{slash}TRACEDATA[1]-Pad19)">
+      <node ref="U5" pin="19" pinfunction="P0.16/TRACEDATA[1]" pintype="bidirectional"/>
+    </net>
+    <net code="61" name="unconnected-(U5-P0.17-Pad20)">
+      <node ref="U5" pin="20" pinfunction="P0.17" pintype="bidirectional"/>
+    </net>
+    <net code="62" name="unconnected-(U5-P0.19-Pad22)">
+      <node ref="U5" pin="22" pinfunction="P0.19" pintype="bidirectional"/>
+    </net>
+    <net code="63" name="unconnected-(U5-P0.20{slash}TRACECLK-Pad23)">
+      <node ref="U5" pin="23" pinfunction="P0.20/TRACECLK" pintype="bidirectional"/>
+    </net>
+    <net code="64" name="unconnected-(U5-P0.22-Pad27)">
+      <node ref="U5" pin="27" pinfunction="P0.22" pintype="bidirectional"/>
+    </net>
+    <net code="65" name="unconnected-(U5-P0.23-Pad28)">
+      <node ref="U5" pin="28" pinfunction="P0.23" pintype="bidirectional"/>
+    </net>
+    <net code="66" name="unconnected-(U5-P0.24-Pad29)">
+      <node ref="U5" pin="29" pinfunction="P0.24" pintype="bidirectional"/>
+    </net>
+    <net code="67" name="unconnected-(U5-P0.25-Pad37)">
+      <node ref="U5" pin="37" pinfunction="P0.25" pintype="bidirectional"/>
+    </net>
+    <net code="68" name="unconnected-(U5-P0.26-Pad38)">
+      <node ref="U5" pin="38" pinfunction="P0.26" pintype="bidirectional"/>
+    </net>
+    <net code="69" name="unconnected-(U5-P0.27-Pad39)">
+      <node ref="U5" pin="39" pinfunction="P0.27" pintype="bidirectional"/>
+    </net>
+    <net code="70" name="unconnected-(U5-P0.28{slash}AIN4-Pad40)">
+      <node ref="U5" pin="40" pinfunction="P0.28/AIN4" pintype="bidirectional"/>
+    </net>
+    <net code="71" name="unconnected-(U5-P0.29{slash}AIN5-Pad41)">
+      <node ref="U5" pin="41" pinfunction="P0.29/AIN5" pintype="bidirectional"/>
+    </net>
+    <net code="72" name="unconnected-(U5-P0.30{slash}AIN6-Pad42)">
+      <node ref="U5" pin="42" pinfunction="P0.30/AIN6" pintype="bidirectional"/>
+    </net>
+    <net code="73" name="unconnected-(U5-P0.31{slash}AIN7-Pad43)">
+      <node ref="U5" pin="43" pinfunction="P0.31/AIN7" pintype="bidirectional"/>
+    </net>
+  </nets>
+</export>
