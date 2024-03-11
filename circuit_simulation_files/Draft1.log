@@ -33,21 +33,19 @@ Ignoring empty pin current: Ix(u4:vin+)
 Ignoring empty pin current: Ix(u1:vin-)
 Ignoring empty pin current: Ix(u1:vin+)
 
-Date: Thu Mar 07 13:43:50 2024
-Total elapsed time: 0.890 seconds.
+Date: Mon Mar 11 12:57:57 2024
+Total elapsed time: 0.481 seconds.
 
 tnom = 27
 temp = 27
-method = modified trap
-totiter = 8837
-traniter = 8800
-tranpoints = 4167
-accept = 2805
-rejected = 1362
+method = trap
+totiter = 37
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
 matrix size = 539
-fillins = 615
+fillins = 598
 solver = Normal
-Thread vector: 60.1/31.8[9] 24.7/14.3[9] 9.2/6.5[7] 2.3/3.2[1]  2592/500
-Matrix Compiler1: 50.97 KB object code size  24.0/10.0/[5.9]
-Matrix Compiler2: 51.33 KB object code size  7.0/11.1/[5.1]
-
+Matrix Compiler1:    2902 opcodes
+Matrix Compiler2:    4076 opcodes
