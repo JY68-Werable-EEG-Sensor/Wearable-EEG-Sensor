@@ -35,8 +35,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 4.699,
-          "width": 4.699
+          "height": 2.65,
+          "width": 1.0
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -56,12 +56,9 @@
         }
       ],
       "drc_exclusions": [
-        "lib_footprint_issues|90791499|52804001|62b75924-04e8-4eda-85aa-3234b4d68e71|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|76500000|53025000|54744e19-18d1-42ab-8f06-cb8ff067abd0|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|76500000|66050000|cb05a396-f634-4015-a41a-9395dba2d09a|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|76980000|59462500|993a3d59-3307-4cc0-b4be-69206a4e7439|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|81862499|65787500|602417ec-57c8-47ed-bb5d-c753545abc54|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|83980000|55050000|dc28bab0-d2a8-4b57-b81a-461dfbe20de8|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|85379000|57350001|e335bcf6-82f2-41db-9bd3-1bafe094e7ec|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|90287499|57597500|e234f9d4-5463-4406-897c-08c43c054483|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|93037500|66450000|20401b25-dd37-4de9-aa9d-f05656bd92d3|00000000-0000-0000-0000-000000000000"

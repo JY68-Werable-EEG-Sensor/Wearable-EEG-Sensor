@@ -2,7 +2,7 @@
 "AE1","Antenna_Chip","Library:XDCR_2450AT18B100E","https://www.johansontechnology.com/datasheets/2450AT18B100/2450AT18B100.pdf","RF ANT 2.4GHZ CHIP SOLDER SMD","Johanson Technology Inc.","2450AT18B0100001E","1"
 "BT1","BHSD-1225-SM","Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical","n/a","No Part","n/a","n/a","1"
 "C1, C2, C7","10uF","Capacitor_SMD:C_0402_1005Metric","https://www.yageo.com/upload/media/product/app/datasheet/mlcc/upy-gphc_x5r_4v-to-50v.pdf","CAP CER 10uF 6.3V 20% 0402 SMD","YAGEO","CC0402MPX5R5BB106","3"
-"C3-C5, C12-C14, C22-C26","0.1uF","Capacitor_SMD:C_0402_1005Metric","https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf","CAP CER 0.1uF 16V 10% 0402 SMD","TDK Corporation","C1005X7R1C104K050BC","11"
+"C3-C5, C12-C14, C22-C26","0.1uF","Capacitor_SMD:C_0402_1005Metric","https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf","-- mixed values --","TDK Corporation","-- mixed values --","11"
 "C6","10nF","Capacitor_SMD:C_0402_1005Metric","https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_automotive_general_en.pdf","CAP CER 10nF 25V 10% 0402 SMD","TDK Corporation","CGA2B2X7R1E103K050BA","1"
 "C8","2.2uF","Capacitor_SMD:C_0402_1005Metric","https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf","CAP CER 2.2uF 6.3V 10% 0402 SMD","TDK Corporation","C1005X5R0J225K050BC","1"
 "C9","33uF","Capacitor_SMD:C_0805_2012Metric","https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf","CAP CER 33uF 6.3V 20% 0805 SMD","TDK Corporation","C2012X5R0J336M125AC","1"
