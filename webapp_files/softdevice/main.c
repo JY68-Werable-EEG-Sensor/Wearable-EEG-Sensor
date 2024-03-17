@@ -139,7 +139,7 @@ typedef struct {
     uint16_t data[SAADC_SAMPLES_IN_BUFFER]; // Adjust this according to your needs
 } saadc_data_t;
 
-#define QUEUE_SIZE 10 // Adjust based on expected data flow and memory constraints
+#define QUEUE_SIZE 500 // Adjust based on expected data flow and memory constraints
 
 saadc_data_t saadc_queue[QUEUE_SIZE];
 int queue_head = 0;
