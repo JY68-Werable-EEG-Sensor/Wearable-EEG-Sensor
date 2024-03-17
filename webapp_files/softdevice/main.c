@@ -1,3 +1,5 @@
+// https://github.com/NordicPlayground/nRF52-ADC-examples/blob/master/ble_app_uart__saadc_timer_driven__scan_mode/main.c
+
 /**
  * Copyright (c) 2014 - 2018, Nordic Semiconductor ASA
  *
@@ -100,9 +102,9 @@
 #define MAX_CONN_INTERVAL               MSEC_TO_UNITS(75, UNIT_1_25_MS)             /**< Maximum acceptable connection interval (75 ms), Connection interval uses 1.25 ms units. */
 #define SLAVE_LATENCY                   0                                           /**< Slave latency. */
 #define CONN_SUP_TIMEOUT                MSEC_TO_UNITS(4000, UNIT_10_MS)             /**< Connection supervisory timeout (4 seconds), Supervision Timeout uses 10 ms units. */
-#define FIRST_CONN_PARAMS_UPDATE_DELAY  TICKS(5000)                       /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
+#define FIRST_CONN_PARAMS_UPDATE_DELAY  APP_TIMER_TICKS(5000)                       /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
 #define NEXT_CONN_PARAMS_UPDATE_DELAY   APP_TIMER_TICKS(30000)                      /**< Time between each call to sd_ble_gap_conn_param_update after the first call (30 seconds). */
-#define MAX_CONN_PARAMS_UPDATE_COUNT    50                                           /**< Number of attempts before giving up the connection parameter negotiation. */
+#define MAX_CONN_PARAMS_UPDATE_COUNT    100                                           /**< Number of attempts before giving up the connection parameter negotiation. */
 
 #define DEAD_BEEF                       0xDEADBEEF                                  /**< Value used as error code on stack dump, can be used to identify stack location on stack unwind. */
 
@@ -110,14 +112,8 @@
 #define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
 #define SAADC_SAMPLES_IN_BUFFER         1
-#define SAADC_SAMPLE_RATE               10                                        /**< SAADC sample rate in ms. */ 
+#define SAADC_SAMPLE_RATE               2                                         /**< SAADC sample rate in ms. */               
 
-
-#define MAX_BUFFER_ENTRIES  10000  // Maximum number of entries in the buffer
-#define CHANNELS_PER_ENTRY  1    // Assuming 1 channels per SAADC sampling event
-
-uint16_t adc_data_buffer[MAX_BUFFER_ENTRIES];
-uint32_t buffer_index = 0; // Points to the next empty slot in the buffer           
 
 BLE_NUS_DEF(m_nus, NRF_SDH_BLE_TOTAL_LINK_COUNT);                                   /**< BLE NUS service instance. */
 NRF_BLE_GATT_DEF(m_gatt);                                                           /**< GATT module instance. */
@@ -125,7 +121,7 @@ NRF_BLE_QWR_DEF(m_qwr);                                                         
 BLE_ADVERTISING_DEF(m_advertising);                                                 /**< Advertising module instance. */
 
 static uint16_t   m_conn_handle          = BLE_CONN_HANDLE_INVALID;                 /**< Handle of the current connection. */
-static uint16_t   m_ble_nus_max_data_len = NRF_SDH_BLE_GATT_MAX_MTU_SIZE - 3;       /**< Maximum length of data (in bytes) that can be transmitted to the peer by the Nordic UART service module. UPDATE: increased to max supported by Nordic **/
+static uint16_t   m_ble_nus_max_data_len = BLE_GATT_ATT_MTU_DEFAULT - 3;            /**< Maximum length of data (in bytes) that can be transmitted to the peer by the Nordic UART service module. */
 static ble_uuid_t m_adv_uuids[]          =                                          /**< Universally unique service identifier. */
 {
     {BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}
@@ -137,6 +133,45 @@ static const nrf_drv_timer_t   m_timer = NRF_DRV_TIMER_INSTANCE(3);
 static nrf_saadc_value_t       m_buffer_pool[2][SAADC_SAMPLES_IN_BUFFER];
 static nrf_ppi_channel_t       m_ppi_channel;
 static uint32_t                m_adc_evt_counter;
+
+//// 
+typedef struct {
+    uint16_t data[SAADC_SAMPLES_IN_BUFFER]; // Adjust this according to your needs
+} saadc_data_t;
+
+#define QUEUE_SIZE 10 // Adjust based on expected data flow and memory constraints
+
+saadc_data_t saadc_queue[QUEUE_SIZE];
+int queue_head = 0;
+int queue_tail = 0;
+
+// Utility functions for queue operations
+bool queue_empty() {
+    return queue_head == queue_tail;
+}
+
+bool queue_full() {
+    return ((queue_tail + 1) % QUEUE_SIZE) == queue_head;
+}
+
+bool enqueue(const saadc_data_t* data) {
+    if (queue_full()) {
+        return false; // Queue is full, cannot enqueue
+    }
+    saadc_queue[queue_tail] = *data;
+    queue_tail = (queue_tail + 1) % QUEUE_SIZE;
+    return true;
+}
+
+bool dequeue(saadc_data_t* data) {
+    if (queue_empty()) {
+        return false; // Queue is empty, cannot dequeue
+    }
+    *data = saadc_queue[queue_head];
+    queue_head = (queue_head + 1) % QUEUE_SIZE;
+    return true;
+}
+
 
 
 /**@brief Function for assert macro callback.
@@ -751,7 +786,6 @@ void saadc_sampling_event_enable(void)
     APP_ERROR_CHECK(err_code);
 }
 
-int prev_buffer_index = 0;
 
 void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 {
@@ -761,6 +795,7 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
         uint16_t adc_value;
         uint8_t value[SAADC_SAMPLES_IN_BUFFER*2];
         uint16_t bytes_to_send;
+        saadc_data_t new_data;
      
         // set buffers
         err_code = nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
@@ -776,19 +811,16 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
             value[i*2] = adc_value;
             value[(i*2)+1] = adc_value >> 8;
 
-        // Ensure there's space in the buffer
-          if (buffer_index < MAX_BUFFER_ENTRIES)
-          {
-              // Store the sampled values
-              adc_data_buffer[buffer_index] = p_event->data.done.p_buffer[i];
-              prev_buffer_index = buffer_index;
-              printf("FILLED = %d", buffer_index);
-              buffer_index++; // Move to the next empty slot
-          }
+            //// 
+            new_data.data[i] = p_event->data.done.p_buffer[i];
+        }
+        
+        //// 
+        if(!enqueue(&new_data)){
+          printf("SAADC queue is full, data lost.");
         }
 
         m_adc_evt_counter++;
-
     }
 }
 
@@ -803,8 +835,8 @@ void saadc_init(void)
     nrf_saadc_channel_config_t channel_0_config =
         NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN4);
     channel_0_config.gain = NRF_SAADC_GAIN1_4;
-    channel_0_config.reference = NRF_SAADC_REFERENCE_VDD4;
-
+    channel_0_config.reference = NRF_SAADC_REFERENCE_VDD4;			
+	
     err_code = nrf_drv_saadc_init(&saadc_config, saadc_callback);
     APP_ERROR_CHECK(err_code);
 
@@ -817,21 +849,49 @@ void saadc_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
+////
+void process_and_send_saadc_data(void) {
+    saadc_data_t data;
+    uint16_t bytes_to_send = 0;
+    ret_code_t err_code;
+    char nus_string[50]; // Buffer for formatted string to send over BLE
+
+    // Process each data item in the queue
+    while (dequeue(&data)) {
+        // Initialize the string to be empty at the start of processing each data item
+        nus_string[0] = '\0';
+
+        // Assuming SAADC_SAMPLES_IN_BUFFER is the number of samples in each data item
+        for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
+            // Append data from the dequeued item to the string, check for overflow
+            char temp_str[20]; // Temporary string for the current sample
+            snprintf(temp_str, sizeof(temp_str), "%d ", data.data[i]);
+            if ((bytes_to_send + strlen(temp_str)) < sizeof(nus_string)) {
+                strcat(nus_string, temp_str);
+                bytes_to_send += strlen(temp_str);
+            } else {
+                // Handle string overflow here (e.g., by breaking the loop)
+                break;
+            }
+        }
+
+        // Send the formatted string over BLE via NUS
+        if (bytes_to_send > 0) {
+            err_code = ble_nus_data_send(&m_nus, (uint8_t*)nus_string, &bytes_to_send, m_conn_handle);
+            if ((err_code != NRF_ERROR_INVALID_STATE) && (err_code != NRF_ERROR_RESOURCES) && (err_code != NRF_ERROR_NOT_FOUND)) {
+                APP_ERROR_CHECK(err_code);
+            }
+            bytes_to_send = 0; // Reset the byte counter for the next data item
+        }
+    }
+}
+
+
 /**@brief Application main function.
  */
 int main(void)
 {
     bool erase_bonds;
-    char data_string[4];
-    int x = 0;
-
-    // BLE send vars
-
-    ret_code_t err_code;
-    uint16_t adc_value;
-    uint8_t value[SAADC_SAMPLES_IN_BUFFER*2];
-    uint16_t bytes_to_send;
-    int i;
 
     // Initialize.
     uart_init();
@@ -859,43 +919,9 @@ int main(void)
     for (;;)
     {
         idle_state_handle();
-
-        // // Send data over BLE via NUS service. Create string from samples and send string with correct length.
-        //if (buffer_index > 0) {
-
-        if (x < buffer_index){
-
-        do {
-          uint16_t nus_string[12];
-          bytes_to_send = sprintf(nus_string, "%d ", adc_data_buffer[x]);
-          printf(" ADC val %u ", adc_data_buffer[x]);
-
-          err_code = ble_nus_data_send(&m_nus, nus_string, &bytes_to_send, m_conn_handle);
-          printf("\n%u", err_code);
-          if ((err_code != NRF_ERROR_INVALID_STATE) && (err_code != NRF_ERROR_NOT_FOUND))
-          {
-          APP_ERROR_CHECK(err_code);
-          }
-        } while (err_code == NRF_ERROR_RESOURCES);
-
-          printf(" SENT %u ", nus_string);
-
-          // Shift the remaining entries in the buffer
-          //memmove(&adc_data_buffer[0], &adc_data_buffer[1], (buffer_index - 1) * sizeof(adc_data_t));
-          //buffer_index--;
-
-          // Short sleep
-          for(i = 0; i < 50000; i++){
-            i = i;
-          }
-        // Increment sender
-        x++;
-        printf(" X = %u", x);
-        }
-
+        ////
+        process_and_send_saadc_data();
     }
-        
-    
 }
 
 
