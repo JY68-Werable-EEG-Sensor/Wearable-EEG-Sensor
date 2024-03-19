@@ -98,8 +98,8 @@
 
 #define APP_ADV_DURATION                18000                                       /**< The advertising duration (180 seconds) in units of 10 milliseconds. */
 
-#define MIN_CONN_INTERVAL               MSEC_TO_UNITS(20, UNIT_1_25_MS)             /**< Minimum acceptable connection interval (20 ms), Connection interval uses 1.25 ms units. */
-#define MAX_CONN_INTERVAL               MSEC_TO_UNITS(75, UNIT_1_25_MS)             /**< Maximum acceptable connection interval (75 ms), Connection interval uses 1.25 ms units. */
+#define MIN_CONN_INTERVAL               MSEC_TO_UNITS(7.5, UNIT_1_25_MS)             /**< Minimum acceptable connection interval (20 ms), Connection interval uses 1.25 ms units. */
+#define MAX_CONN_INTERVAL               MSEC_TO_UNITS(20, UNIT_1_25_MS)             /**< Maximum acceptable connection interval (75 ms), Connection interval uses 1.25 ms units. */
 #define SLAVE_LATENCY                   0                                           /**< Slave latency. */
 #define CONN_SUP_TIMEOUT                MSEC_TO_UNITS(4000, UNIT_10_MS)             /**< Connection supervisory timeout (4 seconds), Supervision Timeout uses 10 ms units. */
 #define FIRST_CONN_PARAMS_UPDATE_DELAY  APP_TIMER_TICKS(5000)                       /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
@@ -112,7 +112,7 @@
 #define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
 #define SAADC_SAMPLES_IN_BUFFER         1
-#define SAADC_SAMPLE_RATE               2                                         /**< SAADC sample rate in ms. */               
+#define SAADC_SAMPLE_RATE               1                                         /**< SAADC sample rate in ms. */               
 
 
 BLE_NUS_DEF(m_nus, NRF_SDH_BLE_TOTAL_LINK_COUNT);                                   /**< BLE NUS service instance. */
@@ -142,6 +142,8 @@ typedef struct {
 #define QUEUE_SIZE 500 // Adjust based on expected data flow and memory constraints
 
 saadc_data_t saadc_queue[QUEUE_SIZE];
+uint16_t samples_buff[1000];
+
 int queue_head = 0;
 int queue_tail = 0;
 
@@ -172,7 +174,8 @@ bool dequeue(saadc_data_t* data) {
     return true;
 }
 
-
+////
+static uint32_t sample_count = 0;
 
 /**@brief Function for assert macro callback.
  *
@@ -791,18 +794,19 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 {
     if (p_event->type == NRF_DRV_SAADC_EVT_DONE)
     {
-        ret_code_t err_code;
+
+        ret_code_t err_code;                
         uint16_t adc_value;
         uint8_t value[SAADC_SAMPLES_IN_BUFFER*2];
         uint16_t bytes_to_send;
         saadc_data_t new_data;
-     
+
         // set buffers
         err_code = nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
         APP_ERROR_CHECK(err_code);
 						
         // print samples on hardware UART and parse data for BLE transmission
-        printf("ADC event number: %d\r\n",(int)m_adc_evt_counter);
+        //printf("ADC event number: %d\r\n",(int)m_adc_evt_counter);
         for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++)
         {
             printf("%d\r\n", p_event->data.done.p_buffer[i]);
@@ -819,6 +823,12 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
         if(!enqueue(&new_data)){
           printf("SAADC queue is full, data lost.");
         }
+
+        //if (sample_count >= 10000){
+        //   printf("*********************************************************************************10000 SAMPLES**************************************************************************");
+        //   printf("*********************************************************************************10000 SAMPLES**************************************************************************");
+        //   printf("*********************************************************************************10000 SAMPLES**************************************************************************");
+        //}
 
         m_adc_evt_counter++;
     }
@@ -919,9 +929,9 @@ int main(void)
     for (;;)
     {
         idle_state_handle();
-        ////
         process_and_send_saadc_data();
     }
+
 }
 
 
