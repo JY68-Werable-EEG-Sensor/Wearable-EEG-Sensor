@@ -111,8 +111,8 @@
 #define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
-#define SAADC_SAMPLES_IN_BUFFER         1
-#define SAADC_SAMPLE_RATE               15                                         /**< SAADC sample rate in ms. */               
+#define SAADC_SAMPLES_IN_BUFFER         10
+#define SAADC_SAMPLE_RATE               2                                         /**< SAADC sample rate in ms. */               
 
 
 BLE_NUS_DEF(m_nus, NRF_SDH_BLE_TOTAL_LINK_COUNT);                                   /**< BLE NUS service instance. */
@@ -817,7 +817,6 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 
             //// 
             new_data.data[i] = p_event->data.done.p_buffer[i];
-
             printf("%d: %d\r\n", sample_count, p_event->data.done.p_buffer[i]);
 
         }
@@ -826,12 +825,6 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
         if(!enqueue(&new_data)){
           printf("SAADC queue is full, data lost at sample %d.\r\n", sample_count);
         }
-
-        //if (sample_count >= 10000){
-        //   printf("*********************************************************************************10000 SAMPLES**************************************************************************");
-        //   printf("*********************************************************************************10000 SAMPLES**************************************************************************");
-        //   printf("*********************************************************************************10000 SAMPLES**************************************************************************");
-        //}
 
         m_adc_evt_counter++;
     }
