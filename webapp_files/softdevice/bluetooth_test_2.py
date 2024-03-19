@@ -34,7 +34,6 @@ if uart_connection and uart_connection.connected:
                 try:
                     count, value = map(int, pair.split(":"))
                     
-                    # Check for consecutive counts, adjust logic as needed
                     if prev_count == -1:  # For the first valid pair
                         print(pair)  # Print the first pair without checking
                     elif count == prev_count + 1:
@@ -53,13 +52,15 @@ if uart_connection and uart_connection.connected:
                         data = data[-WINDOW_SIZE:]
 
                     x_values = range(len(data))
-                    sc.set_offsets(np.c_[x_values, data])  # Efficiently update scatter plot data
+                    sc.set_offsets(np.c_[x_values, data])  # Update scatter plot data
+                    line.set_data(x_values, data)  # Update line plot data
                 except ValueError as e:
                     print(f"Error processing data pair '{pair}': {e}")
     
     # Initialize plot
     fig, ax = plt.subplots()
     sc = ax.scatter([], [], label="Sampled Data")  # Initialize an empty scatter plot
+    line, = ax.plot([], [], '-o', color='blue', label='Sampled Data with Line')  # Initialize line plot
     ax.legend(loc="upper left")
     ax.set_ylim([0, 4095])  # Adjust this as per your data range
     ax.set_xlim(0, WINDOW_SIZE - 1)
@@ -67,7 +68,7 @@ if uart_connection and uart_connection.connected:
     ax.set_ylabel("Value")
 
     def init():
-        return sc,
+        return sc, line,
 
     def update_plot(frame):
         global data
@@ -76,7 +77,7 @@ if uart_connection and uart_connection.connected:
             new_data_buffer = uart_service.readline().decode('utf-8').strip()
             print_and_update_plot(new_data_buffer)
     
-        return sc,
+        return sc, line,
 
     # Use FuncAnimation to update the plot
     ani = FuncAnimation(fig, update_plot, init_func=init, interval=100, blit=True)
