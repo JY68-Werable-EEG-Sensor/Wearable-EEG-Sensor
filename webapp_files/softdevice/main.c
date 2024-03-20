@@ -885,61 +885,36 @@ void saadc_init(void)
 }
 
 ////
-uint8_t x = 0;
-
 void process_and_send_saadc_data(void) {
-//    saadc_data_t data;
-//    uint8_t binary_data[m_ble_nus_max_data_len]; // Buffer for binary data
-//    uint16_t bytes_to_send = 0;
-//    ret_code_t err_code;
+    if (m_conn_handle == BLE_CONN_HANDLE_INVALID) {
+        // No active connection, return
+        NRF_LOG_INFO("No active BLE connection.");
+        return;
+    }
 
-//    //printf("*****************************************RUNNING");
-//    //printf("*****************************************RUNNING");
-//    //printf("*****************************************RUNNING");
+    ret_code_t err_code;
+    uint8_t data[244]; // Payload buffer
+    uint16_t len = sizeof(data); // Length of data to send
 
-//    // Keep processing the queue until it's empty
-//    while (!queue_empty()) {
-//        // Clear the buffer for new data
-//        bytes_to_send = 0;
+    // Fill the data array with a repeating pattern or any data you want
+    for(int i = 0; i < len; ++i) {
+        data[i] = 'A' + (i % 26); // Example pattern: repeating alphabet
+    }
 
-//        // Process all data currently in the queue
-//        while (dequeue(&data)) {
-//            for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
-//                // Ensure there's enough space in the buffer for the next sample
-//                if ((bytes_to_send + 2) <= sizeof(binary_data)) {
-//                    // Pack the sample directly into the binary data buffer
-//                    binary_data[bytes_to_send++] = (data.data[i] >> 8) & 0xFF;
-//                    binary_data[bytes_to_send++] = data.data[i] & 0xFF;
+    // Attempt to send data over BLE NUS
+    err_code = ble_nus_data_send(&m_nus, data, &len, m_conn_handle);
 
-//                    printf("\r\nPacked Bytes: %02X %02X\r\n", binary_data[bytes_to_send - 2], binary_data[bytes_to_send - 1]);
-
-//                } else {
-//                    // Buffer full, send current packet
-//                    err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
-//                    if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
-//                        NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
-//                    }
-//                    bytes_to_send = 0; // Reset counter for the next batch
-//                }
-//            }
-//        }
-
-//        // Send any remaining data in the buffer
-//        if (bytes_to_send > 0) {
-//            err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
-//            if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
-//                NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
-//            }
-//        }
-//    }
-//}
-
-        if(flag == 1 && print_counter < sizeof(static_buff)){
-          printf("BUFF OUT %d", static_buff[print_counter]);
-          print_counter++;
-        }
-
+    if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_INVALID_STATE && err_code != NRF_ERROR_RESOURCES && err_code != NRF_ERROR_NOT_FOUND) {
+        // Handle unexpected errors
+        NRF_LOG_ERROR("Failed to send data over BLE NUS. Error: %d", err_code);
+    } else if (err_code == NRF_ERROR_RESOURCES) {
+        // BLE stack is busy, data could not be sent. Implement retry mechanism if needed.
+        NRF_LOG_WARNING("BLE stack busy, data not sent. Consider retrying.");
+    } else {
+        NRF_LOG_INFO("Data sent over BLE NUS.");
+    }
 }
+
 
 /**@brief Application main function.
  */
@@ -960,9 +935,9 @@ int main(void)
     advertising_init();
     conn_params_init();
 
-    saadc_sampling_event_init();
-    saadc_init();
-    saadc_sampling_event_enable();
+    //saadc_sampling_event_init();
+    //saadc_init();
+    //saadc_sampling_event_enable();
 
     // Start execution.
     printf("\r\nUART started.\r\n");
