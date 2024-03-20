@@ -142,6 +142,8 @@ typedef struct {
     uint16_t data[SAADC_SAMPLES_IN_BUFFER]; // Adjust this according to your needs
 } saadc_data_t;
 
+uint8_t static_buff[244];
+
 #define QUEUE_SIZE 1000 // Adjust based on expected data flow and memory constraints
 saadc_data_t saadc_queue[QUEUE_SIZE];
 
@@ -177,6 +179,7 @@ bool dequeue(saadc_data_t* data) {
 
 ////
 static uint32_t sample_count = 0;
+static uint8_t buffer_count = 0;
 
 /**@brief Function for assert macro callback.
  *
@@ -804,11 +807,22 @@ void saadc_sampling_event_enable(void)
 }
 
 
+int flag = 0;
+int print_counter = 0;
+
 void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 {
     if (p_event->type == NRF_DRV_SAADC_EVT_DONE)
     {
         sample_count = sample_count + 1;
+        buffer_count = buffer_count + 1;
+
+        if(buffer_count < sizeof(static_buff) && flag == 0){
+          printf("FILLING BUFF %d ", buffer_count);
+          static_buff[buffer_count] = buffer_count;
+        } else {
+          flag = 1;
+        }
 
         ret_code_t err_code;                
         uint16_t adc_value;
@@ -832,14 +846,14 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 
             //// 
             new_data.data[i] = p_event->data.done.p_buffer[i];
-            printf("%d: %d\r\n", sample_count, p_event->data.done.p_buffer[i]);
+            //printf("%d: %d\r\n", sample_count, p_event->data.done.p_buffer[i]);
 
         }
 
         //// 
-        if(!enqueue(&new_data)){
-          printf("SAADC queue is full, data lost at sample %d.\r\n", sample_count);
-        }
+        //if(!enqueue(&new_data)){
+        //  printf("SAADC queue is full, data lost at sample %d.\r\n", sample_count);
+        //}
 
         m_adc_evt_counter++;
     }
@@ -871,56 +885,61 @@ void saadc_init(void)
 }
 
 ////
+uint8_t x = 0;
+
 void process_and_send_saadc_data(void) {
-    saadc_data_t data;
-    uint8_t binary_data[m_ble_nus_max_data_len]; // Buffer for binary data
-    uint16_t bytes_to_send = 0;
-    ret_code_t err_code;
+//    saadc_data_t data;
+//    uint8_t binary_data[m_ble_nus_max_data_len]; // Buffer for binary data
+//    uint16_t bytes_to_send = 0;
+//    ret_code_t err_code;
 
-    //printf("*****************************************RUNNING");
-    //printf("*****************************************RUNNING");
-    //printf("*****************************************RUNNING");
+//    //printf("*****************************************RUNNING");
+//    //printf("*****************************************RUNNING");
+//    //printf("*****************************************RUNNING");
 
-    // Keep processing the queue until it's empty
-    while (!queue_empty()) {
-        // Clear the buffer for new data
-        bytes_to_send = 0;
+//    // Keep processing the queue until it's empty
+//    while (!queue_empty()) {
+//        // Clear the buffer for new data
+//        bytes_to_send = 0;
 
-        // Process all data currently in the queue
-        while (dequeue(&data)) {
-            for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
-                // Ensure there's enough space in the buffer for the next sample
-                if ((bytes_to_send + 2) <= sizeof(binary_data)) {
-                    // Pack the sample directly into the binary data buffer
-                    binary_data[bytes_to_send++] = (data.data[i] >> 8) & 0xFF;
-                    binary_data[bytes_to_send++] = data.data[i] & 0xFF;
+//        // Process all data currently in the queue
+//        while (dequeue(&data)) {
+//            for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
+//                // Ensure there's enough space in the buffer for the next sample
+//                if ((bytes_to_send + 2) <= sizeof(binary_data)) {
+//                    // Pack the sample directly into the binary data buffer
+//                    binary_data[bytes_to_send++] = (data.data[i] >> 8) & 0xFF;
+//                    binary_data[bytes_to_send++] = data.data[i] & 0xFF;
 
-                    printf("\r\nPacked Bytes: %02X %02X\r\n", binary_data[bytes_to_send - 2], binary_data[bytes_to_send - 1]);
+//                    printf("\r\nPacked Bytes: %02X %02X\r\n", binary_data[bytes_to_send - 2], binary_data[bytes_to_send - 1]);
 
-                } else {
-                    // Buffer full, send current packet
-                    err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
-                    if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
-                        NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
-                    }
-                    bytes_to_send = 0; // Reset counter for the next batch
-                }
-            }
+//                } else {
+//                    // Buffer full, send current packet
+//                    err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
+//                    if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
+//                        NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
+//                    }
+//                    bytes_to_send = 0; // Reset counter for the next batch
+//                }
+//            }
+//        }
+
+//        // Send any remaining data in the buffer
+//        if (bytes_to_send > 0) {
+//            err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
+//            if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
+//                NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
+//            }
+//        }
+//    }
+//}
+
+        if(flag == 1 && print_counter < sizeof(static_buff)){
+          printf("BUFF OUT %d", static_buff[print_counter]);
+          print_counter++;
         }
 
-        // Send any remaining data in the buffer
-        if (bytes_to_send > 0) {
-            err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
-            if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
-                NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
-            }
-        }
-    }
 }
-
-
-
-
 
 /**@brief Application main function.
  */
@@ -952,7 +971,7 @@ int main(void)
 
     // Enter main loop.
     for (;;)
-    {
+    {   
         idle_state_handle();
         //process_and_send_saadc_data();
     }
