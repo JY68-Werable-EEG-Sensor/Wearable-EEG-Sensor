@@ -111,9 +111,11 @@
 #define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
-#define SAADC_SAMPLES_IN_BUFFER         10
+#define SAADC_SAMPLES_IN_BUFFER         1
 #define SAADC_SAMPLE_RATE               2                                         /**< SAADC sample rate in ms. */               
 
+////
+APP_TIMER_DEF(m_saadc_send_timer_id);
 
 BLE_NUS_DEF(m_nus, NRF_SDH_BLE_TOTAL_LINK_COUNT);                                   /**< BLE NUS service instance. */
 NRF_BLE_GATT_DEF(m_gatt);                                                           /**< GATT module instance. */
@@ -192,11 +194,24 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
     app_error_handler(DEAD_BEEF, line_num, p_file_name);
 }
 
+/**@brief Function to be called by the SAADC data send timer. */
+static void saadc_send_timer_handler(void * p_context)
+{
+    process_and_send_saadc_data();
+}
+
 /**@brief Function for initializing the timer module.
  */
 static void timers_init(void)
 {
     ret_code_t err_code = app_timer_init();
+    APP_ERROR_CHECK(err_code);
+
+    // Create and start a repeated timer for sending SAADC data.
+    err_code = app_timer_create(&m_saadc_send_timer_id, APP_TIMER_MODE_REPEATED, saadc_send_timer_handler);
+    APP_ERROR_CHECK(err_code);
+
+    err_code = app_timer_start(m_saadc_send_timer_id, APP_TIMER_TICKS(62), NULL); // Every 125 ms
     APP_ERROR_CHECK(err_code);
 }
 
@@ -858,30 +873,53 @@ void saadc_init(void)
 ////
 void process_and_send_saadc_data(void) {
     saadc_data_t data;
+    uint8_t binary_data[m_ble_nus_max_data_len]; // Buffer for binary data
     uint16_t bytes_to_send = 0;
     ret_code_t err_code;
 
-    // Process each data item in the queue
-    while (dequeue(&data)){
-          // Initialize the string to be empty at the start of processing each data item
-          uint8_t nus_string[50]; // Buffer for formatted string to send over BLE
-          
-          for(int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
-            bytes_to_send = sprintf(nus_string, "%d:%d ", data.sample_count + i, data.data[i]); 
+    //printf("*****************************************RUNNING");
+    //printf("*****************************************RUNNING");
+    //printf("*****************************************RUNNING");
 
-          }
+    // Keep processing the queue until it's empty
+    while (!queue_empty()) {
+        // Clear the buffer for new data
+        bytes_to_send = 0;
 
-          // Send the formatted string over BLE via NUS
-          if (bytes_to_send > 0) {
-              err_code = ble_nus_data_send(&m_nus, (uint8_t*)nus_string, &bytes_to_send, m_conn_handle);
-              if ((err_code != NRF_ERROR_INVALID_STATE) && (err_code != NRF_ERROR_RESOURCES) && (err_code != NRF_ERROR_NOT_FOUND)) {
-                  APP_ERROR_CHECK(err_code);
-              }
-              bytes_to_send = 0; // Reset the byte counter for the next data item
-        
-          }
+        // Process all data currently in the queue
+        while (dequeue(&data)) {
+            for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
+                // Ensure there's enough space in the buffer for the next sample
+                if ((bytes_to_send + 2) <= sizeof(binary_data)) {
+                    // Pack the sample directly into the binary data buffer
+                    binary_data[bytes_to_send++] = (data.data[i] >> 8) & 0xFF;
+                    binary_data[bytes_to_send++] = data.data[i] & 0xFF;
+
+                    printf("\r\nPacked Bytes: %02X %02X\r\n", binary_data[bytes_to_send - 2], binary_data[bytes_to_send - 1]);
+
+                } else {
+                    // Buffer full, send current packet
+                    err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
+                    if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
+                        NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
+                    }
+                    bytes_to_send = 0; // Reset counter for the next batch
+                }
+            }
+        }
+
+        // Send any remaining data in the buffer
+        if (bytes_to_send > 0) {
+            err_code = ble_nus_data_send(&m_nus, binary_data, &bytes_to_send, m_conn_handle);
+            if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
+                NRF_LOG_WARNING("Data sending failed with error: %d", err_code);
+            }
+        }
     }
 }
+
+
+
 
 
 /**@brief Application main function.
@@ -916,7 +954,7 @@ int main(void)
     for (;;)
     {
         idle_state_handle();
-        process_and_send_saadc_data();
+        //process_and_send_saadc_data();
     }
 
 }
