@@ -112,11 +112,7 @@
 #define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
 #define SAADC_SAMPLES_IN_BUFFER         1
-#define SAADC_SAMPLE_RATE               2                                         /**< SAADC sample rate in ms. */
-
-
-#define SEND_FREQUENCY                  6 // how often to send per second
-           
+#define SAADC_SAMPLE_RATE               1                                         /**< SAADC sample rate in ms. */           
 
 ////
 APP_TIMER_DEF(m_saadc_send_timer_id);
@@ -145,6 +141,8 @@ uint8_t static_buff[244];
 //// 
 # define MAX_PACKET_SIZE            244
 # define SAMPLES_PER_PACKET         90
+# define SEND_FREQUENCY             12 / SAADC_SAMPLE_RATE                                         // how often to send per second - corresponds to number of packets sent per second 
+
 
 // Adjusted SAADC data structure to hold a full packet of data
 typedef struct {
@@ -821,26 +819,37 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event) {
     static uint16_t current_sample_count = 0;
 
     if (p_event->type == NRF_DRV_SAADC_EVT_DONE) {
-        current_packet.samples[current_sample_count++] = p_event->data.done.p_buffer[0];
-
-        if (current_sample_count == SAMPLES_PER_PACKET) {
-            // Packet is full, enqueue it
-            current_packet.len = SAMPLES_PER_PACKET;
-            if (!enqueue(&current_packet)) {
-                // Handle queue full scenario, maybe drop packet or handle overflow
-                printf("Queue is full, dropping packet\n");
-            }
-            // Reset for next packet
-            current_sample_count = 0;
-            // Reset the current_packet for next set of samples
-            memset(&current_packet, 0, sizeof(current_packet));
-        }
-
-        // Prepare the SAADC for the next sample
+        sample_count++;
+        // Re-convert the buffer to prepare for the next SAADC sample capture
         ret_code_t err_code = nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
         APP_ERROR_CHECK(err_code);
+
+        // Process the SAADC samples
+        for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
+            uint16_t sample = p_event->data.done.p_buffer[i];
+
+            printf("Sample %d: %d\r\n", sample_count, sample);
+
+
+            // Add sample to current packet
+            current_packet.samples[current_sample_count++] = sample;
+
+            if (current_sample_count == SAMPLES_PER_PACKET) {
+                // Packet is full, enqueue it
+                current_packet.len = SAMPLES_PER_PACKET;
+                if (!enqueue(&current_packet)) {
+                    // Handle the queue being full
+                    printf("Queue is full, dropping packet\n");
+                }
+
+                // Reset for next packet
+                current_sample_count = 0;
+                memset(&current_packet, 0, sizeof(current_packet)); // Reset the packet
+            }
+        }
     }
 }
+
 
 
 void saadc_init(void)

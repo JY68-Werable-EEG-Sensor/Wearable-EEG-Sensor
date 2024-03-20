@@ -1,8 +1,9 @@
 import asyncio
-import json
-import signal
-import time  # Import time module to track elapsed time
+import threading
 from bleak import BleakClient
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+import time
 
 # Configuration
 NUS_SERVICE_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
@@ -10,58 +11,71 @@ NUS_RX_CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
 device_mac_address = "FC:9C:F9:99:E6:60"  # Replace with your device's MAC address
 
 data = []  # This will store the collected data points
-byte_count = 0  # Initialize a counter for received bytes
-start_time = None  # Time when data collection starts
+sample_count = 0  # Counts the number of samples received
+last_time = time.time()
 
 def handle_data(sender, value):
     """Handle received data."""
-    global byte_count, start_time
-    byte_count += len(value)  # Increment the byte count by the length of the received value
-    print(f"Received data from {sender}: {value}, Total bytes received: {byte_count}")
+    global data, sample_count, last_time
 
-    if start_time is None:
-        start_time = time.time()  # Record the start time when the first data is received
+    # Convert bytes to 16-bit integers (assuming little-endian)
+    values = [int.from_bytes(value[i:i+2], byteorder='little', signed=True) for i in range(0, len(value), 2)]
+    data.extend(values)
+    # print(values)
+    sample_count += len(values)
 
-    decoded_value = value.decode("utf-8", errors="ignore")  # Attempt to decode as UTF-8, ignore errors
-    data.append(decoded_value)
+    # Calculate samples per second every second
+    current_time = time.time()
+    if current_time - last_time >= 1.0:  # Every second
+        print(f"Samples per second: {sample_count}")
+        sample_count = 0  # Reset the counter
+        last_time = current_time
 
 async def connect_and_listen_to_device(device_mac_address):
-    global start_time
     async with BleakClient(device_mac_address) as client:
         if await client.is_connected():
             print(f"Connected to the device with MAC address: {device_mac_address}")
-
             await client.start_notify(NUS_RX_CHARACTERISTIC_UUID, handle_data)
             print("Subscribed to notifications. Listening for data...")
-
-            # Keep the script running to listen for data
-            await asyncio.sleep(float("inf"))
+            await asyncio.sleep(float("inf"))  # Keep listening indefinitely
         else:
             print("Failed to connect to the device.")
 
-def output_data_to_json(data):
-    """Output any received data to output_data.json."""
-    with open("output_data.json", "w") as f:
-        json.dump(data, f)
+def plot_data():
+    WINDOW_SIZE = 50  # Number of samples to display
+    fig, ax = plt.subplots()
+    ax.set_ylim(0, 5000)  # Set the y-axis range
 
-def calculate_bytes_per_second():
-    """Calculate and print the number of bytes received per second."""
-    elapsed_time = time.time() - start_time
-    if elapsed_time > 0:  # Prevent division by zero
-        bytes_per_second = byte_count / elapsed_time
-        print(f"Total bytes received: {byte_count}, Elapsed time: {elapsed_time} seconds, Bytes per second: {bytes_per_second}")
+    xdata = list(range(WINDOW_SIZE))
+    ydata = [0] * WINDOW_SIZE
+    ln, = plt.plot([], [], 's')
 
-def signal_handler(sig, frame):
-    """End program on CTRL+C."""
-    print("Stopping...")
-    calculate_bytes_per_second()  # Calculate bytes per second before exiting
-    output_data_to_json(data)
-    print("Data output to output_data.json")
-    loop.stop()
+    def init():
+        ax.set_xlim(0, WINDOW_SIZE - 1)
+        ax.set_ylim(0, 5000)
+        return ln,
+
+    def update_plot(frame):
+        if len(data) > WINDOW_SIZE:
+            ydata = data[-WINDOW_SIZE:]
+        else:
+            ydata = [0]*(WINDOW_SIZE-len(data)) + data
+        ln.set_data(xdata, ydata)
+        return ln,
+
+    ani = FuncAnimation(fig, update_plot, init_func=init, blit=True, interval=20)
+    plt.show()
+
+def main():
+    # Start BLE event loop in a separate thread
+    def run_ble():
+        asyncio.run(connect_and_listen_to_device(device_mac_address))
+
+    ble_thread = threading.Thread(target=run_ble, daemon=True)
+    ble_thread.start()
+
+    # Start plotting on the main thread
+    plot_data()
 
 if __name__ == "__main__":
-    # Setup signal handler for graceful exit
-    signal.signal(signal.SIGINT, signal_handler)
-
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(connect_and_listen_to_device(device_mac_address))
+    main()
