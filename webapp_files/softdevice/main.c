@@ -214,7 +214,7 @@ static void timers_init(void)
     err_code = app_timer_create(&m_saadc_send_timer_id, APP_TIMER_MODE_REPEATED, saadc_send_timer_handler);
     APP_ERROR_CHECK(err_code);
 
-    err_code = app_timer_start(m_saadc_send_timer_id, APP_TIMER_TICKS(62), NULL); // Every 125 ms
+    err_code = app_timer_start(m_saadc_send_timer_id, APP_TIMER_TICKS(32), NULL); // Every 125 ms
     APP_ERROR_CHECK(err_code);
 }
 
@@ -886,6 +886,8 @@ void saadc_init(void)
 
 ////
 void process_and_send_saadc_data(void) {
+    static uint32_t packet_counter = 0; // Static counter to uniquely identify each packet
+
     if (m_conn_handle == BLE_CONN_HANDLE_INVALID) {
         // No active connection, return
         NRF_LOG_INFO("No active BLE connection.");
@@ -896,10 +898,17 @@ void process_and_send_saadc_data(void) {
     uint8_t data[244]; // Payload buffer
     uint16_t len = sizeof(data); // Length of data to send
 
-    // Fill the data array with a repeating pattern or any data you want
+    // Fill the data array with incrementing values, wrapping at 244
     for(int i = 0; i < len; ++i) {
-        data[i] = 'A' + (i % 26); // Example pattern: repeating alphabet
+        data[i] = i; // Incrementing values
     }
+
+    //// Inject the packet counter value at the start of the payload
+    //// Convert packet_counter to a 4-byte array and copy it into the start of the data array
+    //data[0] = (packet_counter >> 24) & 0xFF;
+    //data[1] = (packet_counter >> 16) & 0xFF;
+    //data[2] = (packet_counter >> 8) & 0xFF;
+    //data[3] = packet_counter & 0xFF;
 
     // Attempt to send data over BLE NUS
     err_code = ble_nus_data_send(&m_nus, data, &len, m_conn_handle);
@@ -911,7 +920,8 @@ void process_and_send_saadc_data(void) {
         // BLE stack is busy, data could not be sent. Implement retry mechanism if needed.
         NRF_LOG_WARNING("BLE stack busy, data not sent. Consider retrying.");
     } else {
-        NRF_LOG_INFO("Data sent over BLE NUS.");
+        NRF_LOG_INFO("Data sent over BLE NUS. Packet: %lu", packet_counter);
+        packet_counter++; // Increment the packet counter after successful transmission
     }
 }
 
