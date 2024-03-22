@@ -69,7 +69,7 @@ const SidebarNav = () => {
                     alignItems="center"
                     ml="10px"
                 >
-                    <Typography variant="h3" color={colors.grey[100]}>
+                    <Typography variant="h4" color={colors.grey[100]}>
                         Dashboard
                     </Typography>
                     <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>

@@ -219,19 +219,20 @@ export const themeSettings = (mode) => {
                 fontSize: 12,
                 h1: {
                   fontFamily: ["Encode Sans Expanded", "sans-serif"].join(","),
-                  fontSize: 40,
+                  fontSize: 90,
+                  //fontSize: 64,
                 },
                 h2: {
                   fontFamily: ["Encode Sans Expanded", "sans-serif"].join(","),
-                  fontSize: 32,
+                  fontSize: 45,
                 },
                 h3: {
                   fontFamily: ["Encode Sans Expanded", "sans-serif"].join(","),
-                  fontSize: 24,
+                  fontSize: 32,
                 },
                 h4: {
                   fontFamily: ["Encode Sans Expanded", "sans-serif"].join(","),
-                  fontSize: 20,
+                  fontSize: 24,
                 },
                 h5: {
                   fontFamily: ["Encode Sans Expanded", "sans-serif"].join(","),
