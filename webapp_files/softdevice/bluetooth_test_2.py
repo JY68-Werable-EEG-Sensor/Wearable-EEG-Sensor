@@ -26,9 +26,10 @@ last_time = time.time()
 
 # Set up queue for data
 data_queue = Queue()
+MAX_QUEUE_SIZE = 1000
 
 from scipy.signal import iirnotch, butter, lfilter, lfilter_zi
-
+ 
 # Configuration for Notch Filter
 fs = 1000  # Sampling frequency
 f0 = 60  # Frequency to be removed from signal (Hz)
@@ -76,6 +77,13 @@ def handle_data(sender, value):
     sample_count += len(filtered_values_offset)
 
     for val in filtered_values_offset:
+        # Make sure queue does not become too big
+        if data_queue.qsize() >= MAX_QUEUE_SIZE:
+            try:
+                data_queue.get_nowait()
+                data_queue.task_done()
+            except data_queue.Empty:
+                pass
         data_queue.put(val)
         #sio.emit('sendEEGData', {'value': val})
         #print(f"Sent: {val}")
@@ -159,6 +167,7 @@ def connect_server():
         print("Failed to connect to server:", e)
 
 def emit_data():
+    # Send data in batches to reduce lag
     batch_size = 10;
     batch = []
     while True:
