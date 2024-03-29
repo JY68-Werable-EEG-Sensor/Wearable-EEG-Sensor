@@ -77,6 +77,7 @@ const Main = () => {
                     >
                         Size : 2cm x 2cm
                         <br />
+                        
                     </Typography>
                 </Box>
                 <Box pr={10} pt={5} pb={5}>
