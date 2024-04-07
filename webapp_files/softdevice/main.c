@@ -137,12 +137,13 @@ static nrf_ppi_channel_t       m_ppi_channel;
 static uint32_t                m_adc_evt_counter;
 
 //// 
-# define SAMPLES_PER_PACKET         100 // MAX = 244 / 2 = 122 
+# define SAMPLES_PER_PACKET         100 // MAX = 244 / 2 - 1 CRC BYTE = 121
 
 // Adjusted SAADC data structure to hold a full packet of data
 typedef struct {
     uint16_t samples[SAMPLES_PER_PACKET];
     uint16_t len; // Number of samples, not bytes, for clarity
+    uint8_t crc; // CRC byte
 } saadc_data_t;
 
 ////
@@ -761,6 +762,23 @@ void saadc_sampling_event_enable(void)
 }
 
 
+// Simple CRC-8 calculator
+uint8_t crc8(uint8_t *data, uint16_t len) {
+    uint8_t crc = 0xFF; // Initial value
+    for (uint16_t i = 0; i < len; i++) {
+        crc ^= data[i]; // XOR byte into least sig. byte of crc
+        for (uint8_t j = 8; j > 0; j--) { // Loop over each bit
+            if (crc & 0x80) { // If the uppermost bit is 1...
+                crc = (crc << 1) ^ 0x31; // ... shift left and XOR with the polynomial
+            } else {
+                crc <<= 1; // Else, just shift left
+            }
+        }
+    }
+    return crc; // Final inverted CRC value
+}
+
+
 void saadc_callback(nrf_drv_saadc_evt_t const * p_event) {
     static saadc_data_t current_packet;
     static uint16_t current_sample_count = 0;
@@ -782,14 +800,20 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event) {
               current_packet.samples[current_sample_count++] = sample;
 
               if (current_sample_count == SAMPLES_PER_PACKET) {
-                  // Packet is full
-                  uint16_t byteLength = current_sample_count * sizeof(uint16_t);
+                  // Calculate CRC on the samples
+                  current_packet.crc = crc8((uint8_t*)current_packet.samples, current_sample_count * sizeof(uint16_t));
+    
+                  // Packet is full, include the CRC byte in the transmission
+                  uint16_t byteLength = (current_sample_count * sizeof(uint16_t)) + sizeof(current_packet.crc);
 
                   if (m_conn_handle != BLE_CONN_HANDLE_INVALID) {
-                      err_code = ble_nus_data_send(&m_nus, (uint8_t*)current_packet.samples, &byteLength, m_conn_handle);
+                      // Send samples and CRC as one packet
+                      uint8_t packet[byteLength];
+                      memcpy(packet, current_packet.samples, byteLength - sizeof(current_packet.crc));
+                      packet[byteLength - 1] = current_packet.crc;
+        
+                      uint32_t err_code = ble_nus_data_send(&m_nus, packet, &byteLength, m_conn_handle);
                       if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
-                          // Data was not sent; either due to disconnection or other BLE errors.
-                          // You should handle retransmission or error logging here.
                           printf("Failed to send SAADC data over BLE NUS. Error: 0x%x\r\n", err_code);
                       }
                   }
@@ -797,6 +821,7 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event) {
                   // Reset for next packet
                   current_sample_count = 0;
               }
+
           }
       
 

@@ -43,13 +43,42 @@ hp_order = 6  # Filter order for the high-pass filter
 b_hp, a_hp = butter(hp_order, hp_cutoff / (0.5 * fs), btype='high', analog=False)
 zi_hp = lfilter_zi(b_hp, a_hp) * 0  # Initial state of the high-pass filter
 
+# CRC
+error_count = 0
+
+
+# Simple CRC-8 calculator
+def crc8(data):
+    crc = 0xFF  # Initial value
+    for byte in data:
+        crc ^= byte  # XOR byte into least sig. byte of crc
+        for _ in range(8):  # Loop over each bit
+            if crc & 0x80:  # If the uppermost bit is 1...
+                crc = (crc << 1) ^ 0x31  # ... shift left and XOR with the polynomial
+            else:
+                crc <<= 1  # Else, just shift left
+    return crc & 0xFF  # Final CRC value
+
+
 def handle_data(sender, value):
     """Handle received data."""
-    global data, sample_count, last_time, zi_notch, zi_low, zi_hp
+    global data, sample_count, last_time, zi_notch, zi_low, zi_hp, error_count
     OFFSET = 0
 
+    # Assuming the last byte is the CRC byte
+    received_crc = value[-1]
+    sample_data = value[:-1]  # Exclude the CRC byte for CRC calculation
+
     # Convert bytes to 16-bit integers (assuming little-endian)
-    values = [int.from_bytes(value[i:i+2], byteorder='little', signed=True) for i in range(0, len(value), 2)]
+    values = [int.from_bytes(value[i:i+2], byteorder='little', signed=True) for i in range(0, len(value) - 1, 2)]
+
+    # Calculate CRC of received samples
+    calculated_crc = crc8(sample_data)
+
+    # Compute CRC
+    if calculated_crc != received_crc:
+        print("ERROR: received data != sent data")
+        error_count = error_count + 1
 
     # Apply the high-pass filter
     # filtered_hp, zi_hp = lfilter(b_hp, a_hp, values, zi=zi_hp)
