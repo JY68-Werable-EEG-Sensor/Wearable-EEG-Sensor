@@ -136,13 +136,8 @@ static nrf_saadc_value_t       m_buffer_pool[2][SAADC_SAMPLES_IN_BUFFER];
 static nrf_ppi_channel_t       m_ppi_channel;
 static uint32_t                m_adc_evt_counter;
 
-uint8_t static_buff[244];
-
 //// 
-# define MAX_PACKET_SIZE            244
-# define SAMPLES_PER_PACKET         90
-# define SEND_FREQUENCY             12 / SAADC_SAMPLE_RATE                                         // how often to send per second - corresponds to number of packets sent per second 
-
+# define SAMPLES_PER_PACKET         100 // MAX = 244 / 2 = 122 
 
 // Adjusted SAADC data structure to hold a full packet of data
 typedef struct {
@@ -150,42 +145,8 @@ typedef struct {
     uint16_t len; // Number of samples, not bytes, for clarity
 } saadc_data_t;
 
-#define QUEUE_SIZE 8 // Adjust based on expected data flow and memory constraints
-saadc_data_t saadc_queue[QUEUE_SIZE];
-
-int queue_head = 0;
-int queue_tail = 0;
-
-// Utility functions for queue operations
-bool queue_empty() {
-    return queue_head == queue_tail;
-}
-
-bool queue_full() {
-    return ((queue_tail + 1) % QUEUE_SIZE) == queue_head;
-}
-
-bool enqueue(const saadc_data_t* data) {
-    if (queue_full()) {
-        return false; // Queue is full, cannot enqueue
-    }
-    saadc_queue[queue_tail] = *data;
-    queue_tail = (queue_tail + 1) % QUEUE_SIZE;
-    return true;
-}
-
-bool dequeue(saadc_data_t* data) {
-    if (queue_empty()) {
-        return false; // Queue is empty, cannot dequeue
-    }
-    *data = saadc_queue[queue_head];
-    queue_head = (queue_head + 1) % QUEUE_SIZE;
-    return true;
-}
-
 ////
 static uint32_t sample_count = 0;
-static uint8_t buffer_count = 0;
 
 /**@brief Function for assert macro callback.
  *
@@ -203,24 +164,11 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
     app_error_handler(DEAD_BEEF, line_num, p_file_name);
 }
 
-/**@brief Function to be called by the SAADC data send timer. */
-static void saadc_send_timer_handler(void * p_context)
-{
-    process_and_send_saadc_data();
-}
-
 /**@brief Function for initializing the timer module.
  */
 static void timers_init(void)
 {
     ret_code_t err_code = app_timer_init();
-    APP_ERROR_CHECK(err_code);
-
-    // Create and start a repeated timer for sending SAADC data.
-    err_code = app_timer_create(&m_saadc_send_timer_id, APP_TIMER_MODE_REPEATED, saadc_send_timer_handler);
-    APP_ERROR_CHECK(err_code);
-
-    err_code = app_timer_start(m_saadc_send_timer_id, APP_TIMER_TICKS(1000 / SEND_FREQUENCY), NULL); // Every 125 ms
     APP_ERROR_CHECK(err_code);
 }
 
@@ -266,6 +214,14 @@ static void nrf_qwr_error_handler(uint32_t nrf_error)
     APP_ERROR_HANDLER(nrf_error);
 }
 
+/**@brief Function for starting advertising.
+ */
+static void advertising_start(void)
+{
+    uint32_t err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
+    APP_ERROR_CHECK(err_code);
+}
+
 
 /**@brief Function for handling the data from the Nordic UART Service.
  *
@@ -301,6 +257,7 @@ static void nus_data_handler(ble_nus_evt_t * p_evt)
         {
             while (app_uart_put('\n') == NRF_ERROR_BUSY);
         }
+
     }
 
 }
@@ -763,15 +720,6 @@ static void idle_state_handle(void)
 }
 
 
-/**@brief Function for starting advertising.
- */
-static void advertising_start(void)
-{
-    uint32_t err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
-    APP_ERROR_CHECK(err_code);
-}
-
-
 void timer_handler(nrf_timer_event_t event_type, void* p_context)
 {
 
@@ -813,43 +761,47 @@ void saadc_sampling_event_enable(void)
 }
 
 
-// Samples up to SAMPLES_PER_PACKET 16 bit samples and adds to a current_sample element 
 void saadc_callback(nrf_drv_saadc_evt_t const * p_event) {
     static saadc_data_t current_packet;
     static uint16_t current_sample_count = 0;
 
-    if (p_event->type == NRF_DRV_SAADC_EVT_DONE) {
-        sample_count++;
-        // Re-convert the buffer to prepare for the next SAADC sample capture
-        ret_code_t err_code = nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
-        APP_ERROR_CHECK(err_code);
+      if (p_event->type == NRF_DRV_SAADC_EVT_DONE) {
+          sample_count++;
+        
+          // Re-convert the buffer to prepare for the next SAADC sample capture
+          ret_code_t err_code = nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
+          APP_ERROR_CHECK(err_code);
 
-        // Process the SAADC samples
-        for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
-            uint16_t sample = p_event->data.done.p_buffer[i];
+          // Process the SAADC samples
+          for (int i = 0; i < SAADC_SAMPLES_IN_BUFFER; i++) {
+              uint16_t sample = p_event->data.done.p_buffer[i];
 
-            printf("Sample %d: %d\r\n", sample_count, sample);
+              printf("Sample %d: %d\r\n", sample_count, sample);
 
+              // Add sample to current packet
+              current_packet.samples[current_sample_count++] = sample;
 
-            // Add sample to current packet
-            current_packet.samples[current_sample_count++] = sample;
+              if (current_sample_count == SAMPLES_PER_PACKET) {
+                  // Packet is full
+                  uint16_t byteLength = current_sample_count * sizeof(uint16_t);
 
-            if (current_sample_count == SAMPLES_PER_PACKET) {
-                // Packet is full, enqueue it
-                current_packet.len = SAMPLES_PER_PACKET;
-                if (!enqueue(&current_packet)) {
-                    // Handle the queue being full
-                    printf("Queue is full, dropping packet\n");
-                }
+                  if (m_conn_handle != BLE_CONN_HANDLE_INVALID) {
+                      err_code = ble_nus_data_send(&m_nus, (uint8_t*)current_packet.samples, &byteLength, m_conn_handle);
+                      if (err_code != NRF_SUCCESS && err_code != NRF_ERROR_RESOURCES) {
+                          // Data was not sent; either due to disconnection or other BLE errors.
+                          // You should handle retransmission or error logging here.
+                          printf("Failed to send SAADC data over BLE NUS. Error: 0x%x\r\n", err_code);
+                      }
+                  }
 
-                // Reset for next packet
-                current_sample_count = 0;
-                memset(&current_packet, 0, sizeof(current_packet)); // Reset the packet
-            }
-        }
-    }
+                  // Reset for next packet
+                  current_sample_count = 0;
+              }
+          }
+      
+
+   }
 }
-
 
 
 void saadc_init(void)
@@ -875,32 +827,6 @@ void saadc_init(void)
     err_code = nrf_drv_saadc_buffer_convert(m_buffer_pool[1],SAADC_SAMPLES_IN_BUFFER);
     APP_ERROR_CHECK(err_code);
 }
-
-////    
-void process_and_send_saadc_data(void) {
-
-    while (!queue_empty()) { // Try to send all available data
-        saadc_data_t packet;
-        if (dequeue(&packet)) {
-            // Calculate the byte length from the number of 16-bit samples
-            uint16_t byteLength = packet.len * sizeof(uint16_t);
-
-            ret_code_t err_code = ble_nus_data_send(&m_nus, (uint8_t*)packet.samples, &byteLength, m_conn_handle);
-
-            // Handle the potential error cases here
-            if (err_code != NRF_SUCCESS) {
-                // Depending on the error, you might want to log it, or if it's due to the queue being full,
-                // you might need to requeue the data or handle it according to your application's needs.
-                // printf("Failed to send SAADC data over BLE NUS. Error: %d\n", err_code);
-
-                // If the data wasn't sent, consider re-queuing or other error handling
-                break; // Exit the loop to avoid spamming and potentially getting stuck
-            }
-        }
-    }
-}
-
-
 
 
 /**@brief Application main function.
@@ -935,7 +861,6 @@ int main(void)
     for (;;)
     {   
         idle_state_handle();
-        //process_and_send_saadc_data();
     }
 
 }
