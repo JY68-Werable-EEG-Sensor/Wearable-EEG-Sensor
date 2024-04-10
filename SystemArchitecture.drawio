@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-10T22:29:07.247Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="47fDP-Z8itbIhj8CpgGP" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-10T23:02:29.708Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="9O6OVQfgadsEoE6C90K6" version="24.0.7" type="github">
   <diagram name="Page-1" id="90a13364-a465-7bf4-72fc-28e22215d7a0">
     <mxGraphModel dx="1235" dy="666" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="5r-JWKK5CV_Yb31bxAMr-4" value="Software System" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="413" y="10" width="611" height="275" as="geometry" />
         </mxCell>
-        <mxCell id="kTSGMVmQ_PneHRCzRS7Z-22" value="Receiver Script" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="kTSGMVmQ_PneHRCzRS7Z-22" value="User Interface" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="738" y="50" width="265" height="216" as="geometry" />
         </mxCell>
         <mxCell id="s0mcBkMtOpM20F1sE7we-36" value="Receiver Script" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
