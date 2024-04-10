@@ -1,4 +1,4 @@
-import { Box, Button, useTheme, Typography } from "@mui/material";
+import { Box, Grid, Button, useTheme, Typography } from "@mui/material";
 import { tokens } from "../theme";
 import { Link } from 'react-router-dom';
 import Profile from "../components/profile"
@@ -11,8 +11,9 @@ const Main = () => {
     const colors = tokens(theme.palette.mode);
 
     return (
-        <Box>
-            <Box display="flex" justifyContent="space-between" sx={{ height: "100vh"}}>
+        <Grid>
+            <Box display="flex" justifyContent="space-between" sx={{ height: "100vh", overflowX: 'hidden'}}>
+                
                 <ParticlesComponent id="particles" />
                 <Box pl={10} pt={10}>
                     <Typography 
@@ -51,7 +52,7 @@ const Main = () => {
                 </Box>
             </Box>
 
-            <Box display="flex" justifyContent="space-between" sx={{backgroundColor: "white"}}>
+            <Box display="flex" justifyContent="space-between" sx={{backgroundColor: "white", overflowX: 'hidden'}}>
                 <Box pl={10} pt={10}>
                     <Typography 
                         variant="h1" 
@@ -89,7 +90,7 @@ const Main = () => {
 
             
            
-            <Box display="flex" justifyContent="space-between" sx={{ backgroundColor: colors.primary[500], }}>
+            <Box display="flex" justifyContent="space-between" sx={{ backgroundColor: colors.primary[500], overflowX: 'hidden' }}>
                 <Box p={10} width="100vw">
                     <Typography 
                         variant="h1" 
@@ -135,7 +136,7 @@ const Main = () => {
 
 
             </Box>
-        </Box>
+        </Grid>
 
     );
 };

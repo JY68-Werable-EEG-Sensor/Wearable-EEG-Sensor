@@ -5,21 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import Dashboard from "./scenes/Connect";
 import Main from "./scenes/Main"
-
-
-
-/*
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import Graph from "./components/graph";
-import History from "./components/history";
-import NavBar from "./components/NavBar";
-*/
-
+import History from "./scenes/History"
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -33,6 +19,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Main />} />
                   <Route path="/connect" element={<Dashboard />} />
+                  <Route path="/history" element={<History />} />
                 </Routes>
               </main>
           </div>

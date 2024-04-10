@@ -2,6 +2,9 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 
+//to run:
+//node server.js 
+
 const app = express();
 const server = http.createServer(app);
 const io = require('socket.io')(server, {

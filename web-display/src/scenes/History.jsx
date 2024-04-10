@@ -1,13 +1,23 @@
+import React, { useState } from 'react';
 import { Box, Button, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import Header from "../components/header";
-import LineChart from "../components/LineChart";
 import Topbar from "./global/Topbar";
 import SidebarNav from "./global/SidebarNav";
+import ChartHistory from "../components/ChartHistory"
 
-const Dashboard = () => {
+import DownloadIcon from '@mui/icons-material/Download';
+
+
+const History = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const [loadData, setLoadData] = useState(false);
+
+    const handleLoadData = () => {
+        setLoadData(true);
+    };
 
     return (
         <div style={{ display: 'flex', height: '100vh', overflow: 'hidden'}}>
@@ -22,9 +32,9 @@ const Dashboard = () => {
                         alignItems="center" 
                         p={3}
                     >
-                        <Header title="EEG DATA" subtitle="View your EEG signal below" />
-                        {/*
+                        <Header title="HISTORY" subtitle="View your EEG signal below" />
                         <Button
+                            onClick={handleLoadData}
                             sx={{
                                 backgroundColor: colors.greenAccent[600],
                                 color: colors.grey[100],
@@ -34,9 +44,8 @@ const Dashboard = () => {
                             }}
                         >
                             <DownloadIcon sx={{ mr: "10px" }} />
-                            Download
+                            Load Data
                         </Button>
-                        */}
                     </Box>
                     <Box 
                         backgroundColor={colors.grey[900]} 
@@ -44,45 +53,16 @@ const Dashboard = () => {
                         mt="20px"
                         sx={{
                             flexGrow: 1,
+                            width: '100%',
                             height: '420px',
-                            overflow: 'hidden', // Prevent overflow outside this container
+                            overflow: 'hidden', 
                         }}
                     >
-                        <LineChart />
-                    </Box>
-                    <Box 
-                        backgroundColor={colors.grey[900]} 
-                        pl={3} 
-                        pb={3}
-                    >
-                        <Button
-                            sx={{
-                            backgroundColor: colors.greenAccent[600],
-                            color: colors.grey[100],
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                            padding: "10px 30px",
-                            margin: "20px 30px 0 0",
-                            }}
-                        >
-                            Start
-                        </Button>
-                        <Button
-                            sx={{
-                            backgroundColor: colors.greenAccent[600],
-                            color: colors.grey[100],
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                            padding: "10px 30px",
-                            margin: "20px 30px 0 0",
-                            }}
-                        >
-                            Stop
-                        </Button>
+                        <ChartHistory loadData={loadData} onLoadingComplete={() => setLoadData(false)} />
                     </Box>
                 </Box>
             </div>
         </div>
     );
 };
-export default Dashboard;
+export default History;

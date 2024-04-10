@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from "@mui/material";
@@ -96,7 +95,6 @@ const LineChart = () => {
 				newLabels.shift();
 				newData.shift();
 			}
-		
 			
 			return {
 				...prevData,
@@ -108,12 +106,11 @@ const LineChart = () => {
 
 
 	return (
-			<Line 
-				data={data} 
-				options={options}
-			/>
+		<Line 
+			data={data} 
+			options={options}
+		/>
 	);
 };
 
 export default LineChart;
-

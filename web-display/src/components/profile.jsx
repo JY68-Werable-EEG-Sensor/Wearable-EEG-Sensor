@@ -32,9 +32,12 @@ const Profile = ({ name, web1, web2 }) => {
                         UBC Electrical Engineering
                     </Typography>
                     <Box>
-                        <IconButton onClick={() => window.open(web1)}> 
-                            <LinkedInIcon sx={{ fontSize: 40, mr: 3}}/>
-                        </IconButton>
+                        <Box component="span" sx={{ mr: 3 }}>
+                            <IconButton onClick={() => window.open(web1)}> 
+                                <LinkedInIcon sx={{ fontSize: 40}}/>
+                            </IconButton>
+                        </Box>
+                        
                         <IconButton onClick={() => window.open(web2)}>
                             <GitHubIcon sx={{fontSize: 40}}/> 
                         </IconButton>  

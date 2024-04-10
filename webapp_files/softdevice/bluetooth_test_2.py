@@ -160,6 +160,7 @@ def connect_server():
     def disconnect():
         print("Disconnected from the server.")
 
+
     try:
         sio.connect(server_url)
         print("Attempting to connect to the server at ", server_url)
@@ -168,7 +169,7 @@ def connect_server():
 
 def emit_data():
     # Send data in batches to reduce lag
-    batch_size = 10;
+    batch_size = 10
     batch = []
     while True:
         val = data_queue.get()
